@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BYNC — Bangladesh Youth Nuclear Congress | Official National Partner of IYNC</title>
+<meta name="description" content="Bangladesh Youth Nuclear Congress (BYNC) — Bangladesh's first youth-led nuclear organisation and the official IYNC National Partner. Home of Innovation for Nuclear (I4N) Bangladesh 2026.">
+<meta name="theme-color" content="#070C16">
+
+<!-- Open Graph / social -->
+<meta property="og:title" content="Bangladesh Youth Nuclear Congress (BYNC)">
+<meta property="og:description" content="Bangladesh's first youth-led nuclear organisation · Official National Partner of IYNC (49th member nation). Powering Bangladesh's nuclear future.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/bync-banner.jpg">
+
+<link rel="icon" type="image/png" href="assets/bync-logo.png">
+<link rel="apple-touch-icon" href="assets/bync-logo.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   BYNC — Bangladesh Youth Nuclear Congress
+   Single-file site · vanilla HTML/CSS/JS · GitHub Pages ready
+   ============================================================ */
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root{
+  /* Surfaces */
+  --bg:#070C16; --bg2:#0A1322; --bg3:#0E1B30; --panel:#10203A; --panel2:#13284a;
+  /* Brand blues (from logo) */
+  --cyan:#4FC3F7; --cyan-2:#7FDBFF; --blue:#2E6DB4; --steel:#173863;
+  /* Bangladesh accents */
+  --green:#06A651; --red:#F4263F;
+  /* Neutrals */
+  --white:#F2F7FF; --silver:#C2D2E4; --muted:#889AB4;
+  /* Tier colors */
+  --gold:#F4B942; --silverm:#C9D2DD; --bronze:#CD8A4E;
+  /* Lines & glow */
+  --border:rgba(79,195,247,.16); --border-2:rgba(79,195,247,.38);
+  --glow:rgba(79,195,247,.55);
+  --font-d:'Space Grotesk',system-ui,sans-serif;
+  --font-b:'Inter',system-ui,-apple-system,sans-serif;
+  --maxw:1160px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+html{ scroll-behavior:smooth; }
+body{
+  font-family:var(--font-b); background:var(--bg); color:var(--silver);
+  line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body.no-scroll{ overflow:hidden; }
+h1,h2,h3,h4{ font-family:var(--font-d); color:var(--white); line-height:1.12; font-weight:700; }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+::selection{ background:rgba(79,195,247,.3); color:#fff; }
+
+/* metallic gradient text used for big headings */
+.metal{
+  background:linear-gradient(180deg,#ffffff 0%,#cfe3f7 45%,#7fb6e8 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.cyan{ color:var(--cyan); }
+
+/* ---------- Scroll progress + preloader ---------- */
+#progress{ position:fixed; top:0; left:0; height:3px; width:0; z-index:300;
+  background:linear-gradient(90deg,var(--blue),var(--cyan),var(--cyan-2)); box-shadow:0 0 12px var(--glow); }
+#preloader{ position:fixed; inset:0; z-index:500; background:var(--bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
+  transition:opacity .6s ease, visibility .6s ease; }
+#preloader.hide{ opacity:0; visibility:hidden; }
+.pre-atom{ width:74px; height:74px; position:relative; }
+.pre-atom span{ position:absolute; inset:0; border:2px solid transparent; border-top-color:var(--cyan);
+  border-radius:50%; animation:spin 1s linear infinite; }
+.pre-atom span:nth-child(2){ inset:10px; border-top-color:var(--blue); animation-duration:1.5s; animation-direction:reverse; }
+.pre-atom span:nth-child(3){ inset:20px; border-top-color:var(--cyan-2); animation-duration:.8s; }
+.pre-text{ font-family:var(--font-d); letter-spacing:6px; font-size:13px; color:var(--muted); }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+/* ---------- Announcement bar ---------- */
+.ann{ background:linear-gradient(90deg,var(--steel),#0c2747,var(--steel));
+  border-bottom:1px solid var(--border); text-align:center; font-size:12.5px; color:var(--cyan-2);
+  padding:8px 16px; letter-spacing:.2px; position:relative; z-index:90; }
+.ann strong{ color:#fff; }
+.ann .dot{ color:var(--cyan); margin:0 8px; opacity:.7; }
+
+/* ---------- Nav ---------- */
+.nav{ position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between;
+  height:66px; padding:0 clamp(16px,4vw,40px); background:rgba(7,12,22,.72);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--border);
+  transition:background .3s; }
+.nav.scrolled{ background:rgba(7,12,22,.94); }
+.brand{ display:flex; align-items:center; gap:11px; }
+.brand img{ width:38px; height:38px; filter:drop-shadow(0 0 8px rgba(79,195,247,.45)); }
+.brand-txt{ font-family:var(--font-d); font-weight:700; font-size:21px; letter-spacing:1.5px; color:#fff; }
+.brand-txt em{ color:var(--cyan); font-style:normal; }
+.nav-links{ display:flex; align-items:center; gap:2px; }
+.nav-links a{ color:var(--silver); font-size:14px; font-weight:500; padding:9px 14px; border-radius:8px;
+  transition:color .15s, background .15s; cursor:pointer; }
+.nav-links a:hover{ color:var(--cyan-2); background:rgba(79,195,247,.08); }
+.nav-links a.active{ color:var(--cyan); }
+.nav-cta{ background:linear-gradient(135deg,var(--blue),var(--cyan)); color:#04101f !important;
+  font-weight:700; padding:9px 20px !important; border-radius:9px; box-shadow:0 6px 20px rgba(79,195,247,.22);
+  transition:transform .15s, box-shadow .15s; }
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(79,195,247,.32); background:linear-gradient(135deg,var(--blue),var(--cyan)) !important; }
+.burger{ display:none; background:none; border:1px solid var(--border-2); color:var(--cyan); width:42px; height:38px;
+  border-radius:9px; font-size:18px; cursor:pointer; }
+
+/* ---------- Pages / reveal ---------- */
+.page{ display:none; }
+.page.active{ display:block; }
+[data-reveal]{ opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+[data-reveal].in{ opacity:1; transform:none; }
+[data-reveal][data-d="1"]{ transition-delay:.08s; }
+[data-reveal][data-d="2"]{ transition-delay:.16s; }
+[data-reveal][data-d="3"]{ transition-delay:.24s; }
+[data-reveal][data-d="4"]{ transition-delay:.32s; }
+
+/* ---------- Layout helpers ---------- */
+.section{ max-width:var(--maxw); margin:0 auto; padding:clamp(56px,8vw,96px) clamp(16px,4vw,40px); }
+.section.tight{ padding-top:clamp(36px,5vw,56px); }
+.alt{ background:
+  radial-gradient(1000px 500px at 80% -10%, rgba(46,109,180,.10), transparent 60%),
+  var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-d); font-size:11.5px;
+  font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--cyan);
+  border:1px solid var(--border-2); background:rgba(79,195,247,.06); padding:6px 14px; border-radius:30px; }
+.h-title{ font-size:clamp(26px,4vw,40px); margin:18px 0 12px; letter-spacing:-.5px; }
+.h-sub{ color:var(--muted); max-width:620px; font-size:15.5px; }
+.center{ text-align:center; } .center .h-sub{ margin-inline:auto; }
+.divider-glow{ height:1px; background:linear-gradient(90deg,transparent,var(--border-2),transparent); }
+
+/* ---------- Buttons ---------- */
+.btn{ display:inline-flex; align-items:center; gap:9px; font-family:var(--font-d); font-weight:600; font-size:15px;
+  padding:13px 26px; border-radius:11px; cursor:pointer; border:none; transition:transform .16s var(--ease), box-shadow .16s, background .2s; }
+.btn-primary{ background:linear-gradient(135deg,var(--blue),var(--cyan)); color:#04101f; box-shadow:0 8px 26px rgba(79,195,247,.26); }
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(79,195,247,.4); }
+.btn-ghost{ background:rgba(79,195,247,.04); color:var(--cyan-2); border:1.5px solid var(--border-2); }
+.btn-ghost:hover{ transform:translateY(-3px); background:rgba(79,195,247,.1); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{ position:relative; min-height:calc(100vh - 66px); display:flex; align-items:center; overflow:hidden;
+  padding:40px clamp(16px,4vw,40px); }
+#stars{ position:absolute; inset:0; z-index:0; }
+.hero::after{ content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+   radial-gradient(720px 460px at 78% 38%, rgba(46,109,180,.30), transparent 62%),
+   radial-gradient(640px 520px at 12% 88%, rgba(6,166,81,.10), transparent 60%),
+   linear-gradient(180deg, transparent 60%, var(--bg) 100%); }
+.hero-grid{ position:relative; z-index:2; max-width:var(--maxw); margin:0 auto; width:100%;
+  display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; }
+.hero-badge{ display:inline-flex; align-items:center; gap:9px; font-size:12.5px; font-weight:600;
+  color:var(--cyan-2); background:rgba(79,195,247,.08); border:1px solid var(--border-2);
+  padding:7px 16px; border-radius:30px; letter-spacing:.4px; }
+.hero-badge .pulse{ width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 0 0 var(--glow);
+  animation:beat 2s infinite; }
+@keyframes beat{ 0%{ box-shadow:0 0 0 0 rgba(79,195,247,.5);}70%{ box-shadow:0 0 0 9px rgba(79,195,247,0);}100%{ box-shadow:0 0 0 0 rgba(79,195,247,0);} }
+.hero h1{ font-size:clamp(34px,6vw,62px); margin:22px 0 18px; letter-spacing:-1.5px; }
+.hero p.lead{ font-size:clamp(15px,1.6vw,18px); color:var(--silver); max-width:520px; }
+.hero-btns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:34px; }
+.hero-facts{ display:flex; gap:26px; flex-wrap:wrap; margin-top:38px; }
+.hero-fact b{ font-family:var(--font-d); color:#fff; font-size:15px; }
+.hero-fact span{ display:block; font-size:12px; color:var(--muted); margin-top:2px; }
+
+/* Animated atom centerpiece (uses the real logo) */
+.atom-wrap{ position:relative; display:grid; place-items:center; }
+.atom-core{ width:clamp(220px,28vw,330px); aspect-ratio:1; position:relative; display:grid; place-items:center;
+  animation:float 7s ease-in-out infinite; }
+.atom-core::before{ content:''; position:absolute; inset:8%; border-radius:50%;
+  background:radial-gradient(circle, rgba(79,195,247,.32), transparent 65%); filter:blur(14px); }
+.atom-core img{ width:84%; position:relative; z-index:2; filter:drop-shadow(0 0 30px rgba(79,195,247,.5)); }
+.orbit{ position:absolute; inset:0; border-radius:50%; }
+.orbit i{ position:absolute; top:50%; left:50%; width:11px; height:11px; margin:-5.5px 0 0 -5.5px; border-radius:50%;
+  background:var(--cyan-2); box-shadow:0 0 12px var(--cyan); }
+.orbit.o1{ animation:spin 9s linear infinite; }
+.orbit.o2{ animation:spin 14s linear infinite reverse; }
+.orbit.o3{ animation:spin 6s linear infinite; }
+.orbit.o1 i{ transform:translateX(clamp(110px,14vw,165px)); }
+.orbit.o2 i{ transform:translateX(clamp(95px,12vw,140px)); background:#fff; }
+.orbit.o3 i{ transform:translateX(clamp(125px,16vw,180px)); background:var(--green); box-shadow:0 0 12px var(--green); }
+@keyframes float{ 0%,100%{ transform:translateY(0);}50%{ transform:translateY(-16px);} }
+
+/* scroll cue */
+.scroll-cue{ position:absolute; bottom:22px; left:50%; transform:translateX(-50%); z-index:3;
+  color:var(--muted); font-size:11px; letter-spacing:2px; text-transform:uppercase; display:flex; flex-direction:column;
+  align-items:center; gap:7px; opacity:.8; }
+.scroll-cue .m{ width:22px; height:36px; border:1.5px solid var(--border-2); border-radius:14px; position:relative; }
+.scroll-cue .m::after{ content:''; position:absolute; top:6px; left:50%; width:4px; height:7px; margin-left:-2px;
+  border-radius:3px; background:var(--cyan); animation:wheel 1.6s infinite; }
+@keyframes wheel{ 0%{ opacity:0; transform:translateY(0);}40%{opacity:1;}100%{ opacity:0; transform:translateY(12px);} }
+
+/* ---------- Stats strip ---------- */
+.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border);
+  border:1px solid var(--border); border-radius:16px; overflow:hidden; max-width:var(--maxw);
+  margin:0 auto; }
+.stat{ background:var(--bg2); padding:26px 16px; text-align:center; position:relative; }
+.stat .n{ font-family:var(--font-d); font-size:clamp(26px,3.4vw,38px); font-weight:700; color:var(--cyan);
+  text-shadow:0 0 24px rgba(79,195,247,.3); }
+.stat .l{ font-size:12.5px; color:var(--muted); margin-top:5px; }
+
+/* ---------- Cards ---------- */
+.grid{ display:grid; gap:18px; }
+.g3{ grid-template-columns:repeat(3,1fr); }
+.g4{ grid-template-columns:repeat(4,1fr); }
+.g2{ grid-template-columns:repeat(2,1fr); }
+.card{ background:linear-gradient(180deg,var(--panel),var(--bg3)); border:1px solid var(--border);
+  border-radius:16px; padding:26px; transition:transform .25s var(--ease), border-color .25s, box-shadow .25s;
+  position:relative; overflow:hidden; }
+.card::before{ content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent); opacity:0; transition:opacity .3s; }
+.card:hover{ transform:translateY(-6px); border-color:var(--border-2); box-shadow:0 18px 40px rgba(0,0,0,.4); }
+.card:hover::before{ opacity:1; }
+.card .ic{ width:50px; height:50px; border-radius:13px; display:grid; place-items:center; font-size:24px;
+  background:rgba(79,195,247,.1); border:1px solid var(--border); margin-bottom:16px; }
+.card h3{ font-size:17px; margin-bottom:8px; }
+.card p{ font-size:13.5px; color:var(--muted); line-height:1.65; }
+
+/* ---------- Why-now feature ---------- */
+.feat{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.feat .fc{ text-align:center; padding:24px 14px; border:1px solid var(--border); border-radius:14px; background:var(--bg3); }
+.feat .fc .big{ font-family:var(--font-d); font-size:24px; color:var(--cyan); font-weight:700; }
+.feat .fc p{ font-size:12.5px; color:var(--muted); margin-top:8px; }
+.gap-callout{ margin-top:24px; border-left:3px solid var(--cyan); background:rgba(79,195,247,.06);
+  padding:20px 24px; border-radius:0 14px 14px 0; }
+.gap-callout p{ color:var(--silver); font-size:14.5px; }
+.gap-callout b{ color:var(--cyan-2); }
+
+/* ---------- Mission / Vision ---------- */
+.mv{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.mv-card{ padding:32px; border-radius:18px; }
+.mv-card.m{ background:linear-gradient(150deg,var(--blue),var(--steel)); border:1px solid var(--border-2); }
+.mv-card.v{ background:var(--bg3); border:1px solid var(--border); }
+.mv-card h3{ font-size:20px; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.mv-card p{ font-size:15px; color:rgba(255,255,255,.9); }
+.mv-card.v p{ color:var(--silver); }
+
+/* brand lockup banner */
+.lockup{ border:1px solid var(--border); border-radius:18px; overflow:hidden; position:relative;
+  box-shadow:0 20px 50px rgba(0,0,0,.4); }
+.lockup img{ width:100%; }
+
+/* values list */
+.values{ display:grid; grid-template-columns:1fr 1fr; gap:14px 30px; margin-top:8px; }
+.value{ display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--border); }
+.value .vd{ width:9px; height:9px; border-radius:50%; background:var(--cyan); margin-top:7px; flex-shrink:0; box-shadow:0 0 10px var(--cyan); }
+.value b{ color:#fff; font-size:14.5px; display:block; margin-bottom:3px; }
+.value span{ font-size:13px; color:var(--muted); }
+
+/* ---------- Timeline ---------- */
+.timeline{ position:relative; padding-left:34px; margin-top:10px; }
+.timeline::before{ content:''; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+  background:linear-gradient(180deg,var(--cyan),var(--steel),transparent); }
+.tl{ position:relative; padding:0 0 30px 6px; }
+.tl::before{ content:''; position:absolute; left:-31px; top:3px; width:16px; height:16px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--cyan); box-shadow:0 0 0 4px rgba(79,195,247,.15); }
+.tl .yr{ font-family:var(--font-d); font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--cyan); }
+.tl h4{ font-size:16px; margin:6px 0 5px; }
+.tl p{ font-size:13.5px; color:var(--muted); }
+
+/* ---------- Page hero (sub pages) ---------- */
+.phero{ position:relative; padding:clamp(46px,7vw,78px) clamp(16px,4vw,40px) clamp(36px,5vw,52px); overflow:hidden;
+  border-bottom:1px solid var(--border);
+  background:
+   radial-gradient(700px 360px at 82% 0%, rgba(46,109,180,.22), transparent 62%),
+   linear-gradient(180deg,#070C16,#0A1322); }
+.phero-in{ max-width:var(--maxw); margin:0 auto; position:relative; z-index:2; }
+.crumb{ font-size:12.5px; color:var(--muted); margin-bottom:14px; letter-spacing:.3px; }
+.crumb b{ color:var(--cyan); font-weight:500; }
+.phero h1{ font-size:clamp(28px,4.6vw,46px); letter-spacing:-1px; }
+.phero p{ color:var(--silver); margin-top:12px; max-width:580px; font-size:15.5px; }
+.phero .ghost-atom{ position:absolute; right:-40px; top:50%; transform:translateY(-50%); width:300px; opacity:.06; z-index:1; }
+
+/* ---------- Tabs (programs) ---------- */
+.tabs{ display:flex; gap:6px; border-bottom:1px solid var(--border); margin-bottom:30px; overflow-x:auto; }
+.tab{ font-family:var(--font-d); font-size:14px; font-weight:500; color:var(--muted); background:none; border:none;
+  padding:13px 18px; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; white-space:nowrap; transition:color .15s; }
+.tab:hover{ color:var(--cyan-2); }
+.tab.active{ color:var(--cyan); border-bottom-color:var(--cyan); }
+.tab-panel{ display:none; } .tab-panel.active{ display:block; animation:fade .35s var(--ease); }
+@keyframes fade{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+
+.event-head{ background:linear-gradient(140deg,var(--blue),var(--steel)); border:1px solid var(--border-2);
+  border-radius:18px; padding:30px; margin-bottom:24px; }
+.event-head h2{ font-size:23px; }
+.event-head p{ color:rgba(255,255,255,.88); margin-top:10px; font-size:14.5px; max-width:640px; }
+.event-meta{ display:flex; gap:10px 22px; flex-wrap:wrap; margin-top:18px; }
+.event-meta span{ font-size:13px; color:#fff; font-weight:500; display:inline-flex; gap:7px; align-items:center; }
+
+/* segment cards */
+.seg{ border:1px solid var(--border); border-radius:16px; padding:24px; background:var(--bg3); position:relative; transition:transform .25s var(--ease), border-color .25s; }
+.seg:hover{ transform:translateY(-5px); border-color:var(--border-2); }
+.seg .tag{ font-family:var(--font-d); font-size:11px; letter-spacing:1.5px; color:var(--cyan); text-transform:uppercase; }
+.seg .num{ font-family:var(--font-d); font-size:30px; font-weight:700; color:var(--white); opacity:.18; position:absolute; top:18px; right:22px; }
+.seg h4{ font-size:17px; margin:6px 0 10px; }
+.seg p{ font-size:13px; color:var(--muted); }
+.seg ul{ list-style:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
+.seg ul li{ font-size:12.5px; color:var(--silver); padding:3px 0; display:flex; gap:8px; }
+.seg ul li b{ color:var(--cyan-2); font-weight:600; }
+.seg .prize{ margin-top:14px; font-size:12.5px; color:var(--muted); }
+.seg .prize b{ color:var(--gold); font-family:var(--font-d); }
+
+/* detail rows */
+.drow{ display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--border); }
+.drow:last-child{ border-bottom:none; }
+.drow .k{ min-width:130px; color:var(--muted); font-size:13px; }
+.drow .v{ color:var(--cyan-2); font-size:14px; font-weight:500; }
+
+/* ---------- Keynotes / people ---------- */
+.people{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; }
+.person{ text-align:center; padding:26px 16px; border:1px solid var(--border); border-radius:16px; background:var(--bg3);
+  transition:transform .25s var(--ease), border-color .25s; }
+.person:hover{ transform:translateY(-5px); border-color:var(--border-2); }
+.ava{ width:70px; height:70px; border-radius:50%; margin:0 auto 14px; display:grid; place-items:center;
+  font-family:var(--font-d); font-weight:700; font-size:18px; color:#fff; border:2px solid var(--border-2);
+  box-shadow:0 0 18px rgba(79,195,247,.15); }
+.person .nm{ font-size:14px; color:#fff; font-weight:600; }
+.person .ro{ font-size:12px; color:var(--cyan); margin-top:4px; }
+.person .org{ font-size:11.5px; color:var(--muted); margin-top:3px; }
+
+/* ecosystem columns */
+.eco{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.eco-col h4{ font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--cyan); margin-bottom:14px; }
+.chip{ display:inline-flex; align-items:center; gap:7px; background:var(--bg3); border:1px solid var(--border);
+  border-radius:9px; padding:9px 14px; font-size:13px; color:var(--silver); margin:0 8px 8px 0; transition:border-color .2s, color .2s; }
+.chip:hover{ border-color:var(--border-2); color:var(--cyan-2); }
+
+/* ---------- Membership tiers ---------- */
+.mtiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.mtier{ border:1px solid var(--border); border-radius:18px; padding:28px; background:var(--bg3); display:flex; flex-direction:column;
+  transition:transform .25s var(--ease), border-color .25s; }
+.mtier:hover{ transform:translateY(-6px); }
+.mtier.feat{ border-color:var(--cyan); box-shadow:0 0 0 1px rgba(79,195,247,.25),0 22px 50px rgba(79,195,247,.08); }
+.mtier .badge{ align-self:flex-start; font-family:var(--font-d); font-size:10.5px; font-weight:600; letter-spacing:1px;
+  text-transform:uppercase; padding:5px 12px; border-radius:30px; margin-bottom:14px; }
+.mtier h3{ font-size:19px; }
+.mtier .price{ font-family:var(--font-d); font-size:30px; color:var(--cyan); margin:6px 0 4px; }
+.mtier .price small{ font-size:14px; color:var(--muted); font-weight:400; }
+.mtier ul{ list-style:none; margin:16px 0 22px; flex:1; }
+.mtier li{ font-size:13.5px; color:var(--silver); padding:6px 0; display:flex; gap:9px; }
+.mtier li::before{ content:'→'; color:var(--cyan); font-weight:700; }
+
+/* ---------- Partner / sponsor tiers ---------- */
+.ptiers{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+.ptier{ border:1px solid var(--border); border-top-width:3px; border-radius:14px; padding:22px 18px; background:var(--bg3);
+  text-align:center; transition:transform .25s var(--ease); }
+.ptier:hover{ transform:translateY(-6px); }
+.ptier .role{ font-size:11.5px; color:var(--muted); min-height:32px; }
+.ptier .lvl{ font-family:var(--font-d); font-size:16px; color:#fff; margin:2px 0 12px; letter-spacing:1px; }
+.ptier .amt{ font-family:var(--font-d); font-size:20px; font-weight:700; }
+.ptier .amt small{ display:block; font-size:11px; color:var(--muted); font-weight:400; letter-spacing:.5px; }
+.t-title{ border-top-color:var(--gold); } .t-title .amt{ color:var(--gold); }
+.t-gold{ border-top-color:#e8c97a; } .t-gold .amt{ color:#e8c97a; }
+.t-silver{ border-top-color:var(--silverm); } .t-silver .amt{ color:var(--silverm); }
+.t-bronze{ border-top-color:var(--bronze); } .t-bronze .amt{ color:var(--bronze); }
+.t-support{ border-top-color:var(--cyan); } .t-support .amt{ color:var(--cyan); }
+
+.benefits{ columns:2; column-gap:30px; margin-top:6px; }
+.benefits li{ list-style:none; font-size:13.5px; color:var(--silver); padding:8px 0; display:flex; gap:10px;
+  break-inside:avoid; border-bottom:1px solid var(--border); }
+.benefits li::before{ content:'✓'; color:var(--green); font-weight:700; }
+.note{ font-size:12.5px; color:var(--muted); background:rgba(79,195,247,.05); border:1px solid var(--border);
+  border-radius:12px; padding:14px 18px; margin-top:18px; }
+.note b{ color:var(--cyan-2); }
+
+/* big CTA band */
+.cta-band{ position:relative; overflow:hidden; border:1px solid var(--border-2); border-radius:22px;
+  background:linear-gradient(135deg,var(--steel),#0a1f3c); padding:clamp(34px,5vw,56px); text-align:center; }
+.cta-band::before{ content:''; position:absolute; inset:0;
+  background:radial-gradient(500px 300px at 50% 0%, rgba(79,195,247,.18), transparent 65%); }
+.cta-band > *{ position:relative; z-index:2; }
+.cta-band h2{ font-size:clamp(24px,3.4vw,34px); }
+.cta-band p{ color:var(--silver); max-width:560px; margin:14px auto 26px; }
+
+/* ---------- FAQ ---------- */
+.faq{ border-bottom:1px solid var(--border); padding:18px 0; cursor:pointer; }
+.faq .q{ display:flex; justify-content:space-between; gap:14px; align-items:center; color:#fff; font-weight:600; font-size:15px; }
+.faq .ar{ color:var(--cyan); transition:transform .25s; flex-shrink:0; }
+.faq.open .ar{ transform:rotate(180deg); }
+.faq .a{ max-height:0; overflow:hidden; transition:max-height .3s var(--ease); }
+.faq .a p{ font-size:13.5px; color:var(--muted); padding-top:12px; line-height:1.7; }
+
+/* ---------- Contact ---------- */
+.contact{ display:grid; grid-template-columns:1.1fr .9fr; gap:36px; }
+.field{ margin-bottom:16px; }
+.field label{ display:block; font-size:11.5px; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); margin-bottom:7px; font-weight:600; }
+.field input,.field select,.field textarea{ width:100%; background:var(--bg3); border:1px solid var(--border); border-radius:10px;
+  padding:12px 14px; color:#fff; font-family:inherit; font-size:14px; transition:border-color .15s, box-shadow .15s; }
+.field input:focus,.field select:focus,.field textarea:focus{ outline:none; border-color:var(--cyan); box-shadow:0 0 0 3px rgba(79,195,247,.12); }
+.field textarea{ resize:vertical; min-height:120px; }
+.field select option{ background:var(--bg2); }
+.cinfo .ci{ display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+.cinfo .ci:last-child{ border-bottom:none; }
+.cinfo .cic{ width:42px; height:42px; border-radius:11px; background:rgba(79,195,247,.1); border:1px solid var(--border);
+  display:grid; place-items:center; font-size:18px; flex-shrink:0; }
+.cinfo .ci b{ color:#fff; font-size:13.5px; display:block; }
+.cinfo .ci span{ color:var(--muted); font-size:13px; word-break:break-word; }
+.cinfo .ci a{ color:var(--cyan-2); }
+.csocial{ width:36px; height:36px; border-radius:9px; background:rgba(79,195,247,.08); border:1px solid var(--border);
+  display:grid; place-items:center; font-size:14px; color:var(--silver) !important; font-weight:700; transition:all .15s; }
+.csocial:hover{ background:rgba(79,195,247,.16); color:var(--cyan) !important; transform:translateY(-2px); }
+.form-note{ font-size:12px; color:var(--muted); margin-top:10px; }
+
+/* ---------- Footer ---------- */
+.footer{ background:#05090f; border-top:1px solid var(--border); padding:54px clamp(16px,4vw,40px) 26px; }
+.footer-in{ max-width:var(--maxw); margin:0 auto; }
+.fgrid{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; }
+.fbrand .brand{ margin-bottom:14px; }
+.fbrand p{ font-size:13px; color:var(--muted); max-width:260px; }
+.fcol h4{ font-size:11.5px; letter-spacing:1.2px; text-transform:uppercase; color:var(--cyan-2); margin-bottom:14px; }
+.fcol a{ display:block; font-size:13.5px; color:var(--muted); padding:5px 0; cursor:pointer; transition:color .15s; }
+.fcol a:hover{ color:var(--cyan); }
+.fbar{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  margin-top:36px; padding-top:22px; border-top:1px solid var(--border); }
+.fbar p{ font-size:12px; color:var(--muted); opacity:.7; }
+.socials{ display:flex; gap:10px; }
+.socials a{ width:38px; height:38px; border-radius:10px; background:rgba(79,195,247,.06); border:1px solid var(--border);
+  display:grid; place-items:center; font-size:14px; color:var(--silver); font-weight:700; transition:all .15s; }
+.socials a:hover{ background:rgba(79,195,247,.14); color:var(--cyan); transform:translateY(-3px); }
+
+/* ---------- Responsive ---------- */
+@media (max-width:920px){
+  .g4,.feat{ grid-template-columns:repeat(2,1fr); }
+  .ptiers{ grid-template-columns:repeat(3,1fr); }
+  .hero-grid{ grid-template-columns:1fr; text-align:center; }
+  .hero-badge,.hero-facts{ justify-content:center; }
+  .atom-wrap{ order:-1; margin-bottom:10px; }
+  .hero p.lead{ margin-inline:auto; }
+  .contact{ grid-template-columns:1fr; }
+  .fgrid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:680px){
+  .nav-links{ position:fixed; inset:66px 0 auto 0; flex-direction:column; gap:0; background:var(--bg2);
+    border-bottom:1px solid var(--border); padding:10px; transform:translateY(-130%); transition:transform .3s var(--ease); z-index:95; }
+  .nav-links.open{ transform:translateY(0); }
+  .nav-links a{ padding:13px; width:100%; }
+  .burger{ display:block; }
+  .g3,.g2,.mv,.values,.eco,.mtiers,.benefits{ grid-template-columns:1fr; columns:1; }
+  .stats{ grid-template-columns:repeat(2,1fr); }
+  .ptiers,.feat{ grid-template-columns:repeat(2,1fr); }
+  .fgrid{ grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+  [data-reveal]{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div id="preloader">
+  <div class="pre-atom"><span></span><span></span><span></span></div>
+  <div class="pre-text">B Y N C</div>
+</div>
+
+<!-- Announcement -->
+<div class="ann">
+  ⚛️ Officially the <strong>49th national member of IYNC</strong>
+  <span class="dot">●</span> I4N Bangladesh 2026 — <strong>25 July, Russian House, Dhaka</strong>
+  <span class="dot">●</span> Road to Avignon 🇫🇷
+</div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#home">
+    <img src="assets/bync-logo.png" alt="BYNC logo">
+    <span class="brand-txt">BY<em>NC</em></span>
+  </a>
+  <div class="nav-links" id="navlinks">
+    <a data-route="home">Home</a>
+    <a data-route="about">About</a>
+    <a data-route="programs">Programs</a>
+    <a data-route="join">Join</a>
+    <a data-route="partners">Partners</a>
+    <a data-route="contact">Contact</a>
+  </div>
+  <a class="nav-links-cta nav-cta" data-route="join">Join BYNC</a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main class="page active" id="page-home">
+  <section class="hero">
+    <canvas id="stars"></canvas>
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge"><span class="pulse"></span>🇧🇩 Official National Partner of IYNC</span>
+        <h1>Powering Bangladesh's <span class="cyan">Nuclear Future</span></h1>
+        <p class="lead">Bangladesh's first youth-led nuclear organisation — connecting the nation's brightest STEM minds to the global nuclear community as we enter the post-Rooppur era.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" data-route="join">Join the Movement →</a>
+          <a class="btn btn-ghost" data-route="programs">Explore I4N 2026</a>
+        </div>
+        <div class="hero-facts">
+          <div class="hero-fact"><b>Est. 2025</b><span>Founded at MIST, Dhaka</span></div>
+          <div class="hero-fact"><b>49th Nation</b><span>In the IYNC network</span></div>
+          <div class="hero-fact"><b>300+</b><span>I4N participants</span></div>
+        </div>
+      </div>
+      <div class="atom-wrap">
+        <div class="atom-core">
+          <img src="assets/bync-logo.png" alt="BYNC atom emblem">
+          <div class="orbit o1"><i></i></div>
+          <div class="orbit o2"><i></i></div>
+          <div class="orbit o3"><i></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><div class="m"></div>Scroll</div>
+  </section>
+
+  <!-- stats -->
+  <section class="section tight">
+    <div class="stats" data-reveal>
+      <div class="stat"><div class="n" data-count="49" data-suffix="th">0</div><div class="l">IYNC Member Nation</div></div>
+      <div class="stat"><div class="n" data-count="300" data-suffix="+">0</div><div class="l">I4N Participants</div></div>
+      <div class="stat"><div class="n" data-count="49" data-suffix="">0</div><div class="l">Countries Connected</div></div>
+      <div class="stat"><div class="n" data-count="200" data-suffix="+">0</div><div class="l">Students Engaged</div></div>
+    </div>
+  </section>
+
+  <!-- what we do -->
+  <section class="section">
+    <div class="center" data-reveal>
+      <span class="eyebrow">⚡ What We Do</span>
+      <h2 class="h-title">Three fronts of impact</h2>
+      <p class="h-sub">From a national innovation competition to a global delegation, BYNC builds the youth pipeline for Bangladesh's nuclear era.</p>
+    </div>
+    <div class="grid g4" style="margin-top:42px">
+      <div class="card" data-reveal data-d="1"><div class="ic">🔬</div><h3>Innovation for Nuclear</h3><p>I4N Bangladesh 2026 — the national qualifying round of IYNC's flagship competition. 25 July, Russian House, Dhaka.</p></div>
+      <div class="card" data-reveal data-d="2"><div class="ic">🌐</div><h3>Global Representation</h3><p>As IYNC's 49th member nation, BYNC takes Bangladesh's first delegation to IYNC 2026 in Avignon, France.</p></div>
+      <div class="card" data-reveal data-d="3"><div class="ic">🤝</div><h3>Industry & Institutions</h3><p>Bridging students with BAEC, NPCBL (Rooppur), Rosatom, Russian House and the worldwide nuclear network.</p></div>
+      <div class="card" data-reveal data-d="4"><div class="ic">📡</div><h3>Knowledge Transfer</h3><p>Campus sessions, international keynotes and workshops connecting youth to senior nuclear experts.</p></div>
+    </div>
+  </section>
+
+  <!-- why now -->
+  <section class="alt"><div class="section">
+    <div class="center" data-reveal>
+      <span class="eyebrow">🇧🇩 Why Now</span>
+      <h2 class="h-title">Bangladesh's nuclear era has begun</h2>
+      <p class="h-sub">A $12B+ transformation needs a globally literate young workforce. BYNC exists to build it.</p>
+    </div>
+    <div class="feat" style="margin-top:42px">
+      <div class="fc" data-reveal data-d="1"><div class="big">$12B+</div><p>Infrastructure transformation underway</p></div>
+      <div class="fc" data-reveal data-d="2"><div class="big">Rooppur</div><p>Bangladesh's first nuclear power plant</p></div>
+      <div class="fc" data-reveal data-d="3"><div class="big">Talent</div><p>Demand for a globally trained workforce</p></div>
+      <div class="fc" data-reveal data-d="4"><div class="big">BYNC</div><p>Building the youth pipeline to lead it</p></div>
+    </div>
+    <div class="gap-callout" data-reveal>
+      <p>Bangladesh currently lacks an established pipeline of young, globally literate, SDG-aligned nuclear professionals equipped to participate in — and lead — the post-Rooppur era. <b>I4N Bangladesh 2026 is designed to begin closing that gap.</b></p>
+    </div>
+  </div></section>
+
+  <!-- event highlight -->
+  <section class="section">
+    <div class="cta-band" data-reveal>
+      <span class="eyebrow">📅 Flagship Event</span>
+      <h2 style="margin-top:14px">Innovation for Nuclear (I4N) Bangladesh 2026</h2>
+      <p>The national qualifying round of IYNC's global I4N. Compete across three segments — the national winners represent Bangladesh at IYNC 2026, Avignon, France.</p>
+      <div class="event-meta" style="justify-content:center">
+        <span>📆 25 July 2026</span><span>📍 Russian House, Dhaka</span><span>🏆 3 Segments</span><span>🇫🇷 Winners → Avignon</span>
+      </div>
+      <div style="margin-top:28px"><a class="btn btn-primary" data-route="programs">See the Competition →</a></div>
+    </div>
+  </section>
+
+  <!-- partners marquee -->
+  <section class="alt"><div class="section tight">
+    <div class="center" data-reveal>
+      <span class="eyebrow">🤝 Ecosystem</span>
+      <h2 class="h-title">Who stands with us</h2>
+    </div>
+    <div class="center" style="margin-top:26px" data-reveal>
+      <span class="chip">IYNC — 49th Member</span><span class="chip">Russian House Dhaka</span>
+      <span class="chip">Rosatom</span><span class="chip">BAEC</span><span class="chip">BAERA</span>
+      <span class="chip">NPCBL — Rooppur NPP</span><span class="chip">Dhaka University</span><span class="chip">MIST NSE</span>
+    </div>
+  </div></section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" id="page-about">
+  <section class="phero">
+    <img class="ghost-atom" src="assets/bync-logo.png" alt="">
+    <div class="phero-in">
+      <div class="crumb">Home / <b>About</b></div>
+      <h1>About Bangladesh Youth Nuclear Congress</h1>
+      <p>Founded June 2025 — Bangladesh's first and only youth-led nuclear organisation, and the official national partner of IYNC.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="mv">
+      <div class="mv-card m" data-reveal data-d="1"><h3>🎯 Our Mission</h3><p>To unite, empower and internationally represent the young generation of nuclear science professionals and students in Bangladesh — working at the intersection of nuclear innovation, youth empowerment and the UN Sustainable Development Goals.</p></div>
+      <div class="mv-card v" data-reveal data-d="2"><h3>🔭 Our Vision</h3><p>A Bangladesh where a skilled, globally-connected youth nuclear community drives the country's clean-energy transition and leads the post-Rooppur nuclear future on the world stage.</p></div>
+    </div>
+
+    <div style="margin-top:30px" data-reveal>
+      <div class="lockup"><img src="assets/bync-banner.jpg" alt="Bangladesh Youth Nuclear Congress"></div>
+    </div>
+
+    <div style="margin-top:44px" data-reveal>
+      <span class="eyebrow">💡 Core Values</span>
+      <div class="values" style="margin-top:18px">
+        <div class="value"><div class="vd"></div><div><b>Knowledge Transfer</b><span>Bridging senior scientists and the next generation through workshops and IYNC programming.</span></div></div>
+        <div class="value"><div class="vd"></div><div><b>Peaceful Nuclear Use</b><span>Advocating strictly for civilian, clean-energy applications of nuclear science.</span></div></div>
+        <div class="value"><div class="vd"></div><div><b>Global Representation</b><span>Giving Bangladesh a clear, professional voice in international youth nuclear networks.</span></div></div>
+        <div class="value"><div class="vd"></div><div><b>Innovation & SDGs</b><span>Running I4N to push student-led nuclear problem-solving onto the global stage.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt"><div class="section">
+    <div data-reveal>
+      <span class="eyebrow">📈 Our Journey</span>
+      <h2 class="h-title">What we've done — in under a year</h2>
+    </div>
+    <div class="timeline" style="margin-top:24px">
+      <div class="tl" data-reveal data-d="1"><div class="yr">Aug 2025</div><h4>MOU with IYNC</h4><p>Bangladesh officially enters the global nuclear youth network as the 49th member nation. BYNC featured on IYNC's official platform.</p></div>
+      <div class="tl" data-reveal data-d="2"><div class="yr">Dec 2025</div><h4>"Road to I4N" launched</h4><p>Campus sessions at Dhaka University & MIST. BYNC listed on IYNC's global YGN map. Keynote by Alice Cunha da Silva (IYNC Vice President / Westinghouse).</p></div>
+      <div class="tl" data-reveal data-d="3"><div class="yr">Jan 2026</div><h4>Two more international keynotes</h4><p>Dr. Dinara Ermakova (IYNC Innovation Chair) and George Caliment (I4N Europe Lead, Assystem) address Bangladeshi students.</p></div>
+      <div class="tl" data-reveal data-d="4"><div class="yr">Now</div><h4>I4N Bangladesh 2026 is ready</h4><p>200+ students engaged and submissions rolling in. Event day set: 25 July 2026, Russian House, Dhaka.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section">
+    <div class="center" data-reveal>
+      <span class="eyebrow">👥 Leadership</span>
+      <h2 class="h-title">The people behind BYNC</h2>
+      <p class="h-sub">A student-led team guided by senior nuclear academics.</p>
+    </div>
+    <div class="people" style="margin-top:40px">
+      <div class="person" data-reveal data-d="1"><div class="ava" style="background:linear-gradient(135deg,#2E6DB4,#173863)">MHS</div><div class="nm">Mhamudul Hasan Sami</div><div class="ro">Founder & President</div></div>
+      <div class="person" data-reveal data-d="2"><div class="ava" style="background:linear-gradient(135deg,#173863,#0D2040)">NT</div><div class="nm">Nazifa Tasnim</div><div class="ro">General Secretary</div></div>
+      <div class="person" data-reveal data-d="3"><div class="ava" style="background:linear-gradient(135deg,#6B1A4B,#3D0D2A)">SNP</div><div class="nm">Sadia Noushin Promi</div><div class="ro">Vice President</div></div>
+      <div class="person" data-reveal data-d="4"><div class="ava" style="background:linear-gradient(135deg,#2A3340,#0D1117)">MSI</div><div class="nm">Prof. Dr. MD Shafiqul Islam</div><div class="ro">Chief Advisor</div><div class="org">Ex-Director, BAEC · Dept. of Nuclear Engineering, Dhaka University</div></div>
+      <div class="person" data-reveal data-d="2"><div class="ava" style="background:linear-gradient(135deg,#3A2412,#1A0D05)">FSS</div><div class="nm">Fahim Sabab Siddique</div><div class="ro">Advisor</div></div>
+      <div class="person" data-reveal data-d="3"><div class="ava" style="background:linear-gradient(135deg,#0D3A2A,#051A12)">ZTA</div><div class="nm">Zareen Tahsin Anjum</div><div class="ro">Advisor</div></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PROGRAMS ================= -->
+<main class="page" id="page-programs">
+  <section class="phero">
+    <img class="ghost-atom" src="assets/bync-logo.png" alt="">
+    <div class="phero-in">
+      <div class="crumb">Home / <b>Programs</b></div>
+      <h1>BYNC Programs</h1>
+      <p>National competition, a global delegation, and year-round outreach — driving youth nuclear leadership in Bangladesh.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="tabs">
+      <button class="tab active" data-tab="i4n">I4N Bangladesh 2026</button>
+      <button class="tab" data-tab="iync">IYNC 2026 Delegation</button>
+      <button class="tab" data-tab="net">Network & Outreach</button>
+    </div>
+
+    <!-- I4N -->
+    <div class="tab-panel active" id="tab-i4n">
+      <div class="event-head" data-reveal>
+        <h2>Innovation for Nuclear (I4N) — Bangladesh 2026</h2>
+        <p>Bangladesh's first national youth nuclear innovation competition and the national qualifying round of IYNC's flagship I4N. The winning team represents Bangladesh at the I4N Global Finale, IYNC 2026, Avignon.</p>
+        <div class="event-meta"><span>📆 25 July 2026</span><span>📍 Russian House, Dhaka</span><span>👥 300+ participants</span><span>🏆 3 segments</span></div>
+      </div>
+      <div class="grid g3">
+        <div class="seg" data-reveal data-d="1"><div class="num">01</div><div class="tag">Segment 01</div><h4>I4N Competition</h4><p>Abstract-based selection from 40+ submissions using the IYNC-standard rubric to identify Bangladesh's top nuclear innovators.</p>
+          <ul><li><b>10</b> teams × 3 members</li><li>Applied nuclear innovation aligned to UN SDGs</li></ul>
+          <div class="prize">Prizes — <b>৳10,000</b> travel grant + trophy · ৳5,000 · ৳3,000</div></div>
+        <div class="seg" data-reveal data-d="2"><div class="num">02</div><div class="tag">Segment 02</div><h4>Project Showcase</h4><p>Live presentation of working prototypes and energy / nuclear-adjacent solutions before guests and jurors.</p>
+          <ul><li><b>15</b> teams × 3 members</li><li>Prototypes & applied innovation</li></ul>
+          <div class="prize">Prizes — <b>৳8,000</b> · ৳5,000 · ৳3,000 · certificates for all</div></div>
+        <div class="seg" data-reveal data-d="3"><div class="num">03</div><div class="tag">Segment 03</div><h4>Poster Presentation</h4><p>Research poster exhibition and defence across energy, nuclear science, climate and SDG alignment — building the academic pipeline for RNPP & IYNC.</p>
+          <ul><li><b>15</b> teams × 3 members</li><li>Research & academic posters</li></ul>
+          <div class="prize">Prizes — <b>৳8,000</b> · ৳5,000 · ৳3,000 · certificates for all</div></div>
+      </div>
+    </div>
+
+    <!-- IYNC -->
+    <div class="tab-panel" id="tab-iync">
+      <div class="card" data-reveal style="padding:30px">
+        <h2 style="font-size:22px; margin-bottom:18px">IYNC 2026 — Avignon, France</h2>
+        <div class="drow"><div class="k">Theme</div><div class="v">"The Chain of Change"</div></div>
+        <div class="drow"><div class="k">Venue</div><div class="v">Palais des Papes, Avignon (UNESCO World Heritage Site)</div></div>
+        <div class="drow"><div class="k">Dates</div><div class="v">4–9 October 2026</div></div>
+        <div class="drow"><div class="k">BYNC presence</div><div class="v">Bangladesh's first-ever National Pavilion (IYNC Bronze Package)</div></div>
+        <div class="drow"><div class="k">Reach</div><div class="v">50+ countries · 500+ attendees · IAEA & WNA support</div></div>
+      </div>
+      <div class="note" data-reveal>The national winners of I4N Bangladesh 2026 advance to the <b>I4N Global Finale</b> at IYNC 2026 — carrying Bangladesh's nuclear innovation to the world stage, with an IYNC travel grant for finalists.</div>
+    </div>
+
+    <!-- Network -->
+    <div class="tab-panel" id="tab-net">
+      <div class="grid g3">
+        <div class="card" data-reveal data-d="1"><div class="ic">📚</div><h3>Road to I4N</h3><p>Awareness campaign and campus sessions across leading institutions including Dhaka University and MIST.</p></div>
+        <div class="card" data-reveal data-d="2"><div class="ic">🎤</div><h3>International Keynotes</h3><p>Direct engagement with senior global figures from IYNC, Westinghouse and Assystem for Bangladeshi students.</p></div>
+        <div class="card" data-reveal data-d="3"><div class="ic">🌏</div><h3>Global Exchange</h3><p>Connecting members to IYNC's 49-country network for collaboration, mentoring and co-authored research.</p></div>
+      </div>
+
+      <div style="margin-top:44px" data-reveal>
+        <span class="eyebrow">🎤 Keynote Speakers</span>
+        <div class="people" style="margin-top:20px">
+          <div class="person"><div class="ava" style="background:linear-gradient(135deg,#2E6DB4,#173863)">AC</div><div class="nm">Alice Cunha da Silva</div><div class="ro">IYNC Vice President</div><div class="org">Westinghouse</div></div>
+          <div class="person"><div class="ava" style="background:linear-gradient(135deg,#6B1A4B,#3D0D2A)">DE</div><div class="nm">Dr. Dinara Ermakova</div><div class="ro">IYNC Innovation Chair</div></div>
+          <div class="person"><div class="ava" style="background:linear-gradient(135deg,#173863,#0D2040)">GC</div><div class="nm">George Caliment</div><div class="ro">I4N Europe Lead</div><div class="org">Assystem</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:44px" data-reveal>
+        <span class="eyebrow">🏛️ The Ecosystem</span>
+        <div class="eco" style="margin-top:20px">
+          <div class="eco-col"><h4>Academic</h4><span class="chip">Dhaka University</span><span class="chip">MIST</span><span class="chip">BUET (INPE)</span></div>
+          <div class="eco-col"><h4>Government & Regulatory</h4><span class="chip">BAEC</span><span class="chip">BAERA</span><span class="chip">NPCBL — Rooppur</span></div>
+          <div class="eco-col"><h4>International</h4><span class="chip">IYNC</span><span class="chip">Russian House Dhaka</span><span class="chip">Rosatom</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= JOIN ================= -->
+<main class="page" id="page-join">
+  <section class="phero">
+    <img class="ghost-atom" src="assets/bync-logo.png" alt="">
+    <div class="phero-in">
+      <div class="crumb">Home / <b>Join</b></div>
+      <h1>Join BYNC</h1>
+      <p>Be part of Bangladesh's nuclear youth movement — from Dhaka to Avignon and beyond.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="center" data-reveal>
+      <span class="eyebrow">🚀 Membership</span>
+      <h2 class="h-title">Choose your level</h2>
+      <p class="h-sub">Open to students and young professionals (under 35) in nuclear science, engineering and related fields across Bangladesh.</p>
+    </div>
+    <div class="mtiers" style="margin-top:40px">
+      <div class="mtier" data-reveal data-d="1">
+        <span class="badge" style="background:rgba(79,195,247,.1); color:var(--silver)">Student</span>
+        <h3>Student Member</h3><div class="price">Free <small>/ year</small></div>
+        <ul><li>Access to all BYNC events & workshops</li><li>I4N competition eligibility</li><li>Newsletter & community updates</li><li>BYNC member certificate</li></ul>
+        <a class="btn btn-ghost" data-route="contact" data-subject="Membership / Join BYNC">Apply Now</a>
+      </div>
+      <div class="mtier feat" data-reveal data-d="2">
+        <span class="badge" style="background:rgba(79,195,247,.18); color:var(--cyan)">⭐ Most Popular</span>
+        <h3>Young Professional</h3><div class="price">Free <small>/ year</small></div>
+        <ul><li>All Student Member benefits</li><li>IYNC delegate consideration</li><li>Industry networking sessions</li><li>International representation opportunities</li></ul>
+        <a class="btn btn-primary" data-route="contact" data-subject="Membership / Join BYNC">Apply Now</a>
+      </div>
+      <div class="mtier" data-reveal data-d="3">
+        <span class="badge" style="background:rgba(244,185,66,.12); color:var(--gold)">Institutional</span>
+        <h3>Institutional Partner</h3><div class="price">Contact <small>us</small></div>
+        <ul><li>Corporate / institutional recognition</li><li>Co-branded event presence</li><li>MOU-based partnership</li><li>Access to BYNC's talent pipeline</li></ul>
+        <a class="btn btn-ghost" data-route="partners">Partner Options</a>
+      </div>
+    </div>
+
+    <div style="margin-top:54px" data-reveal>
+      <span class="eyebrow">❓ FAQ</span>
+      <div style="margin-top:14px">
+        <div class="faq"><div class="q">Who can join BYNC? <span class="ar">▾</span></div><div class="a"><p>Any student or young professional (under 35) in nuclear science, nuclear engineering or a related discipline in Bangladesh. Students from MIST, Dhaka University and BUET are especially encouraged.</p></div></div>
+        <div class="faq"><div class="q">How do I get selected for the IYNC delegation? <span class="ar">▾</span></div><div class="a"><p>Delegation selection is competitive — based on I4N performance, academic background and overall contribution to BYNC. Top performers at I4N Bangladesh 2026 are strongly prioritised.</p></div></div>
+        <div class="faq"><div class="q">Is BYNC formally registered? <span class="ar">▾</span></div><div class="a"><p>BYNC operates as a youth nuclear network under academic supervision, and is the official national partner of IYNC. Formal registration is in progress.</p></div></div>
+        <div class="faq"><div class="q">Can companies partner with BYNC? <span class="ar">▾</span></div><div class="a"><p>Yes. We offer MOU-based partnerships and sponsorship roles for organisations in energy, technology and beyond. See the <a class="cyan" data-route="partners" style="cursor:pointer">Partners</a> page or contact us.</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PARTNERS ================= -->
+<main class="page" id="page-partners">
+  <section class="phero">
+    <img class="ghost-atom" src="assets/bync-logo.png" alt="">
+    <div class="phero-in">
+      <div class="crumb">Home / <b>Partners</b></div>
+      <h1>Partner with BYNC</h1>
+      <p>Put your brand on a global stage — from Bangladesh's national stage in Dhaka to the Bangladesh National Pavilion at IYNC 2026, Avignon.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="note" data-reveal>🏛️ <b>One partnership, two milestones.</b> Your support powers <b>I4N Bangladesh 2026</b> (Dhaka, 25 July) and Bangladesh's first-ever <b>National Pavilion at IYNC 2026</b> (Avignon, 4–9 October). Your brand travels from Dhaka to the Palais des Papes, in front of the global nuclear industry.</div>
+
+    <div style="margin-top:40px" data-reveal>
+      <div class="center"><span class="eyebrow">🎯 Why Partner</span><h2 class="h-title">More than a logo on a banner</h2></div>
+      <div class="grid g3" style="margin-top:34px">
+        <div class="card"><div class="ic">🌍</div><h3>Local + Global Visibility</h3><p>National recognition in Bangladesh and international exposure across IYNC's platform spanning 49 countries.</p></div>
+        <div class="card"><div class="ic">🎓</div><h3>Youth Talent Access</h3><p>A direct line to Bangladesh's top nuclear engineering students and emerging young professionals.</p></div>
+        <div class="card"><div class="ic">🇧🇩</div><h3>CSR & Nation-Building</h3><p>A tangible contribution to Bangladesh's nuclear future and the Rooppur clean-energy transition.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:54px" data-reveal>
+      <div class="center"><span class="eyebrow">📦 Partnership Tiers</span><h2 class="h-title">Roles, not just price levels</h2>
+        <p class="h-sub">Every tier is a genuine partnership role. Benefits scale with investment — but every partner is a meaningful stakeholder.</p></div>
+      <div class="ptiers" style="margin-top:34px">
+        <div class="ptier t-title"><div class="lvl">TITLE</div><div class="role">Founding Institutional Partner</div><div class="amt">৳8,00,000<small>BDT</small></div></div>
+        <div class="ptier t-gold"><div class="lvl">GOLD</div><div class="role">Principal Innovation Partner</div><div class="amt">৳6,50,000<small>BDT</small></div></div>
+        <div class="ptier t-silver"><div class="lvl">SILVER</div><div class="role">Strategic Supporting Partner</div><div class="amt">৳5,00,000<small>BDT</small></div></div>
+        <div class="ptier t-bronze"><div class="lvl">BRONZE</div><div class="role">Community Innovation Partner</div><div class="amt">৳3,50,000<small>BDT</small></div></div>
+        <div class="ptier t-support"><div class="lvl">SUPPORT</div><div class="role">Network Advancement Partner</div><div class="amt">৳2,00,000<small>BDT</small></div></div>
+      </div>
+      <div class="note" data-reveal>In-kind sponsorships — equipment, technical support, hospitality or services — are classified within a tier by equivalent value. <b>Terms and benefits for any partnership can be discussed and tailored on request.</b></div>
+    </div>
+
+    <div style="margin-top:54px" data-reveal>
+      <div class="center"><span class="eyebrow">✨ What Partners Receive</span><h2 class="h-title">Benefits across the partnership</h2></div>
+      <ul class="benefits" style="margin-top:28px">
+        <li>Official Event Co-Presenter status</li>
+        <li>Prominent logo on banners & signage</li>
+        <li>Logo on all 120+ participant certificates</li>
+        <li>National press & media coverage</li>
+        <li>Direct team updates & announcements</li>
+        <li>Exclusive access to networking events</li>
+        <li>Featured social-media campaigns</li>
+        <li>Exhibition presence at IYNC 2026, Avignon</li>
+        <li>Stall facilities at Russian House, Dhaka</li>
+        <li>VIP photo session with the team</li>
+        <li>Post-event media feature</li>
+        <li>Global brand travel to France 🇫🇷</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:54px" data-reveal>
+      <div class="cta-band">
+        <h2>Become a founding partner</h2>
+        <p>The most valuable partnerships are formed at the beginning — when there is room to be a founder rather than a follower. Let's build Bangladesh's nuclear future together.</p>
+        <a class="btn btn-primary" data-route="contact" data-subject="Sponsorship / Partnership Inquiry">Talk to our team →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page" id="page-contact">
+  <section class="phero">
+    <img class="ghost-atom" src="assets/bync-logo.png" alt="">
+    <div class="phero-in">
+      <div class="crumb">Home / <b>Contact</b></div>
+      <h1>Get in touch</h1>
+      <p>Whether you want to join, partner, compete or learn more — we'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="contact">
+      <div data-reveal>
+        <!-- NOTE: replace the action URL with your Formspree form ID (formspree.io). -->
+        <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST" id="contactForm">
+          <div class="field"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="you@email.com" required></div>
+          <div class="field"><label>Organisation</label><input type="text" name="organisation" placeholder="Company / University (optional)"></div>
+          <div class="field"><label>Subject</label>
+            <select name="subject" id="subjectSelect">
+              <option>Membership / Join BYNC</option>
+              <option>I4N Competition 2026</option>
+              <option>Sponsorship / Partnership Inquiry</option>
+              <option>Media / Press</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="Tell us how we can help…" required></textarea></div>
+          <button class="btn btn-primary" type="submit" style="width:100%">Send Message →</button>
+          <p class="form-note">This form is powered by Formspree — submissions are emailed to BYNC. No data is stored on this site.</p>
+        </form>
+      </div>
+
+      <div class="cinfo" data-reveal data-d="1">
+        <h3 style="margin-bottom:8px">Contact information</h3>
+        <div class="ci"><div class="cic">✉️</div><div><b>General Enquiries</b><span><a href="mailto:bync.bd@gmail.com">bync.bd@gmail.com</a></span></div></div>
+        <div class="ci"><div class="cic">🌐</div><div><b>IYNC Network</b><span>49th national member · <a href="https://iync.org" target="_blank" rel="noopener">iync.org</a></span></div></div>
+        <div class="ci"><div class="cic">📍</div><div><b>Based in</b><span>Dhaka, Bangladesh</span></div></div>
+        <div class="ci"><div class="cic">🔗</div><div><b>Follow us</b><span style="display:flex; gap:8px; margin-top:6px">
+          <a class="csocial" href="https://www.linkedin.com/company/bangladesh-youth-nuclear-congress-bync/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a class="csocial" href="https://www.facebook.com/profile.php?id=61577912678276" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a class="csocial" href="https://www.instagram.com/bync.bd/" target="_blank" rel="noopener" aria-label="Instagram">◉</a>
+        </span></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-in">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="brand" href="#home"><img src="assets/bync-logo.png" alt="BYNC"><span class="brand-txt">BY<em>NC</em></span></a>
+        <p>Bangladesh Youth Nuclear Congress — Bangladesh's first youth-led nuclear organisation and the 49th national member of IYNC.</p>
+      </div>
+      <div class="fcol"><h4>Organisation</h4>
+        <a data-route="about">About</a><a data-route="programs">Programs</a><a data-route="about">Our Team</a><a data-route="join">Join BYNC</a></div>
+      <div class="fcol"><h4>Get Involved</h4>
+        <a data-route="partners">Partner With Us</a><a data-route="programs">I4N 2026</a><a data-route="programs">IYNC Delegation</a><a data-route="contact">Contact</a></div>
+      <div class="fcol"><h4>Network</h4>
+        <a href="https://iync.org" target="_blank" rel="noopener">IYNC</a><a href="#">BAEC</a><a href="#">NPCBL — Rooppur</a><a href="#">Russian House Dhaka</a></div>
+    </div>
+    <div class="fbar">
+      <p>© <span id="yr"></span> Bangladesh Youth Nuclear Congress. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/bangladesh-youth-nuclear-congress-bync/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="https://www.facebook.com/profile.php?id=61577912678276" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/bync.bd/" target="_blank" rel="noopener" aria-label="Instagram">◉</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------------- Router (hash-based) ---------------- */
+const routes = ['home','about','programs','join','partners','contact'];
+function go(route, push=true){
+  if(!routes.includes(route)) route='home';
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+route).classList.add('active');
+  document.querySelectorAll('.nav-links a[data-route]').forEach(a=>
+    a.classList.toggle('active', a.dataset.route===route));
+  if(push && location.hash!=='#'+route) history.pushState({route},'', '#'+route);
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant':'auto'});
+  closeNav();
+  revealInit();
+}
+document.addEventListener('click', e=>{
+  const el = e.target.closest('[data-route]');
+  if(el){ e.preventDefault();
+    // preset contact subject if provided
+    if(el.dataset.subject){ pendingSubject = el.dataset.subject; }
+    go(el.dataset.route);
+    if(pendingSubject) applySubject();
+  }
+});
+let pendingSubject=null;
+function applySubject(){
+  const sel=document.getElementById('subjectSelect');
+  if(sel && pendingSubject){ [...sel.options].forEach(o=>{ if(o.value===pendingSubject) sel.value=pendingSubject; }); pendingSubject=null; }
+}
+window.addEventListener('popstate', ()=> go((location.hash||'#home').slice(1), false));
+
+/* ---------------- Nav behaviour ---------------- */
+const nav=document.getElementById('nav'), navlinks=document.getElementById('navlinks');
+document.getElementById('burger').onclick=()=> navlinks.classList.toggle('open');
+function closeNav(){ navlinks.classList.remove('open'); }
+addEventListener('scroll', ()=>{
+  nav.classList.toggle('scrolled', scrollY>20);
+  const h=document.documentElement;
+  const sc=h.scrollHeight-h.clientHeight;
+  document.getElementById('progress').style.width = (sc>0? (scrollY/sc*100):0)+'%';
+});
+
+/* ---------------- Tabs ---------------- */
+document.querySelectorAll('.tab').forEach(t=> t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('tab-'+t.dataset.tab).classList.add('active');
+  revealInit();
+});
+
+/* ---------------- FAQ ---------------- */
+document.querySelectorAll('.faq').forEach(f=> f.onclick=()=>{
+  const a=f.querySelector('.a'); const open=f.classList.toggle('open');
+  a.style.maxHeight = open ? a.scrollHeight+'px' : 0;
+});
+
+/* ---------------- Scroll reveal ---------------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);
+    if(en.target.querySelector('[data-count]')||en.target.hasAttribute('data-count')) countUp(en.target); } });
+},{threshold:.15});
+function revealInit(){
+  document.querySelectorAll('.page.active [data-reveal]:not(.in)').forEach(el=> io.observe(el));
+}
+
+/* ---------------- Counters ---------------- */
+function countUp(scope){
+  scope.querySelectorAll('[data-count]').forEach(el=>{
+    if(el.dataset.done) return; el.dataset.done=1;
+    const target=+el.dataset.count, suf=el.dataset.suffix||''; let cur=0;
+    const step=Math.max(1, target/60);
+    const tick=()=>{ cur+=step; if(cur>=target){ el.textContent=target+suf; }
+      else{ el.textContent=Math.floor(cur)+suf; requestAnimationFrame(tick); } };
+    tick();
+  });
+}
+
+/* ---------------- Starfield (hero) ---------------- */
+(function(){
+  const cv=document.getElementById('stars'); if(!cv) return; const ctx=cv.getContext('2d');
+  let w,h,stars; const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function resize(){ w=cv.width=cv.offsetWidth; h=cv.height=cv.offsetHeight;
+    stars=Array.from({length: Math.min(120, Math.floor(w*h/12000))}, ()=>({
+      x:Math.random()*w, y:Math.random()*h, r:Math.random()*1.4+.3,
+      a:Math.random()*.6+.2, vy:Math.random()*.18+.04, tw:Math.random()*.02+.005, t:Math.random()*6 })); }
+  function draw(){ ctx.clearRect(0,0,w,h);
+    for(const s of stars){ s.t+=s.tw; const al=s.a*(.6+.4*Math.sin(s.t));
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,7); ctx.fillStyle='rgba(140,200,255,'+al+')'; ctx.fill();
+      s.y+=s.vy; if(s.y>h){ s.y=0; s.x=Math.random()*w; } }
+    requestAnimationFrame(draw); }
+  resize(); addEventListener('resize', resize); if(!reduce) draw(); else draw();
+})();
+
+/* ---------------- Init ---------------- */
+document.getElementById('yr').textContent=new Date().getFullYear();
+go((location.hash||'#home').slice(1), false);
+addEventListener('load', ()=> setTimeout(()=> document.getElementById('preloader').classList.add('hide'), 350));
+revealInit();
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# ── Not part of the deployed website ──────────────────────────
+# Large / sensitive: sponsorship proposal contains personal contacts (83 MB)
+*.pdf
+
+# Internal working & research docs
+BYNC_Research_Brief.md
+bync-website-prototype.html
+
+# Original (unprocessed) logo sources — processed copies live in assets/
+BYNC.png
+BYNC JPG.jpg
+
+# Spreadsheets / data
+*.xlsx
+*.csv
+
+# ── OS / editor cruft ─────────────────────────────────────────
+Thumbs.db
+.DS_Store
+*.tmp
+~$*
+*.log
