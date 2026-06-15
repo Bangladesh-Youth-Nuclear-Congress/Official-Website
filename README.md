@@ -4,7 +4,7 @@ The official website of the **Bangladesh Youth Nuclear Congress (BYNC)** — Ban
 youth-led nuclear organisation and the official National Partner of the International Youth Nuclear
 Congress (IYNC), the 49th member nation.
 
-🔗 Live (once GitHub Pages is enabled): `https://byncbd-org.github.io/Official-Website/`
+🔗 Live (once GitHub Pages is enabled): `https://bangladesh-youth-nuclear-congress.github.io/Official-Website/`
 
 ## About the site
 
