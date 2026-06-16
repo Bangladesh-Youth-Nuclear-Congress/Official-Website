@@ -1,6 +1,8 @@
 # ── Not part of the deployed website ──────────────────────────
 # Large / sensitive: sponsorship proposal contains personal contacts (83 MB)
 *.pdf
+# ...except the public sponsor-facing proposal served on the site (drop the slim PDF here)
+!assets/BYNC-Sponsorship-Proposal.pdf
 
 # Internal working & research docs
 BYNC_Research_Brief.md
