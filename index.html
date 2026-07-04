@@ -43,6 +43,8 @@
   --white:#F2F7FF; --silver:#C2D2E4; --muted:#889AB4;
   /* Tier colors */
   --gold:#F4B942; --silverm:#C9D2DD; --bronze:#CD8A4E;
+  /* Regional-tier colors (I4N Bangladesh 2026 only) */
+  --r-title:#5B9BD5; --r-gold:#D9962F; --r-silver:#7C8FAE; --r-bronze:#7A8B4E; --r-support:#9AA6B2;
   /* Lines & glow */
   --border:rgba(79,195,247,.16); --border-2:rgba(79,195,247,.38);
   --glow:rgba(79,195,247,.55);
@@ -92,7 +94,7 @@ img{ max-width:100%; display:block; }
 .ann .dot{ color:var(--cyan); margin:0 8px; opacity:.7; }
 
 /* ---------- Nav ---------- */
-.nav{ position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between;
+.nav{ position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; gap:12px;
   height:66px; padding:0 clamp(16px,4vw,40px); background:rgba(7,12,22,.72);
   backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--border);
   transition:background .3s; }
@@ -408,6 +410,24 @@ img{ max-width:100%; display:block; }
 .t-bronze{ border-top-color:var(--bronze); } .t-bronze .amt{ color:var(--bronze); }
 .t-support{ border-top-color:var(--cyan); } .t-support .amt{ color:var(--cyan); }
 
+/* Regional (I4N Bangladesh 2026 only) tier accents */
+.r-title{ border-top-color:var(--r-title); } .r-title .amt{ color:var(--r-title); }
+.r-gold{ border-top-color:var(--r-gold); } .r-gold .amt{ color:var(--r-gold); }
+.r-silver{ border-top-color:var(--r-silver); } .r-silver .amt{ color:var(--r-silver); }
+.r-bronze{ border-top-color:var(--r-bronze); } .r-bronze .amt{ color:var(--r-bronze); }
+.r-support{ border-top-color:var(--r-support); } .r-support .amt{ color:var(--r-support); }
+
+/* Track labels distinguishing the two partnership programs */
+.track-label{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-d); font-size:12px;
+  letter-spacing:1.5px; font-weight:700; padding:7px 16px; border-radius:999px; margin-bottom:14px; }
+.track-label.intl{ background:rgba(79,195,247,.1); color:var(--cyan-2); border:1px solid var(--border-2); }
+.track-label.reg{ background:rgba(122,139,78,.12); color:#b7c98a; border:1px solid rgba(122,139,78,.4); }
+.track-divider{ display:flex; align-items:center; gap:16px; margin:64px 0 34px; }
+.track-divider::before, .track-divider::after{ content:''; flex:1; height:1px; background:var(--border); }
+.track-divider span{ font-family:var(--font-d); font-size:12px; letter-spacing:2px; color:var(--muted); white-space:nowrap; }
+@media(max-width:900px){ .ptiers{ grid-template-columns:1fr 1fr; } }
+@media(max-width:560px){ .ptiers{ grid-template-columns:1fr; } }
+
 .benefits{ columns:2; column-gap:30px; margin-top:6px; }
 .benefits li{ list-style:none; font-size:13.5px; color:var(--silver); padding:8px 0; display:flex; gap:10px;
   break-inside:avoid; border-bottom:1px solid var(--border); }
@@ -481,7 +501,7 @@ img{ max-width:100%; display:block; }
   .g4,.feat{ grid-template-columns:repeat(2,1fr); }
   .ptiers{ grid-template-columns:repeat(3,1fr); }
   .hero-grid{ grid-template-columns:1fr; text-align:center; }
-  .hero-badge,.hero-facts{ justify-content:center; }
+  .hero-badge,.hero-facts,.hero-btns{ justify-content:center; }
   .atom-wrap{ order:-1; margin-bottom:10px; }
   .hero p.lead{ margin-inline:auto; }
   .contact{ grid-template-columns:1fr; }
@@ -493,10 +513,16 @@ img{ max-width:100%; display:block; }
   .nav-links.open{ transform:translateY(0); }
   .nav-links a{ padding:13px; width:100%; }
   .burger{ display:block; }
+  .nav-cta{ padding:8px 14px !important; font-size:13px; }
   .g3,.g2,.mv,.values,.eco,.mtiers,.benefits{ grid-template-columns:1fr; columns:1; }
   .stats{ grid-template-columns:repeat(2,1fr); }
   .ptiers,.feat{ grid-template-columns:repeat(2,1fr); }
   .fgrid{ grid-template-columns:1fr; }
+  .hero-btns{ flex-direction:column; align-items:stretch; width:100%; }
+  .hero-btns .btn{ width:100%; justify-content:center; }
+}
+@media (max-width:400px){
+  .nav-cta{ display:none; }
 }
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
@@ -544,7 +570,7 @@ img{ max-width:100%; display:block; }
     <canvas id="stars"></canvas>
     <div class="hero-grid">
       <div>
-        <span class="hero-badge"><span class="pulse"></span>🇧🇩 Official National Partner of IYNC</span>
+        <span class="hero-badge"><span class="pulse"></span>🇧🇩 Official Youth Generation Network (YGN) of IYNC</span>
         <h1>Powering Bangladesh's <span class="cyan">Nuclear Future</span></h1>
         <p class="lead">Bangladesh's first youth-led nuclear organisation — connecting the nation's brightest STEM minds to the global nuclear community as we enter the post-Rooppur era.</p>
         <div class="hero-btns">
@@ -555,6 +581,7 @@ img{ max-width:100%; display:block; }
           <div class="hero-fact"><b>Est. 2025</b><span>Founded at MIST, Dhaka</span></div>
           <div class="hero-fact"><b>49th Nation</b><span>In the IYNC network</span></div>
           <div class="hero-fact"><b>500+</b><span>I4N participants</span></div>
+          <div class="hero-fact"><b>1000+</b><span>Students engaged</span></div>
         </div>
       </div>
       <div class="atom-wrap">
@@ -573,9 +600,9 @@ img{ max-width:100%; display:block; }
   <section class="section tight">
     <div class="stats" data-reveal>
       <div class="stat"><div class="n" data-count="49" data-suffix="th">0</div><div class="l">IYNC Member Nation</div></div>
-      <div class="stat"><div class="n" data-count="300" data-suffix="+">0</div><div class="l">I4N Participants</div></div>
+      <div class="stat"><div class="n" data-count="500" data-suffix="+">0</div><div class="l">I4N Participants</div></div>
       <div class="stat"><div class="n" data-count="49" data-suffix="">0</div><div class="l">Countries Connected</div></div>
-      <div class="stat"><div class="n" data-count="200" data-suffix="+">0</div><div class="l">Students Engaged</div></div>
+      <div class="stat"><div class="n" data-count="1000" data-suffix="+">0</div><div class="l">Students Engaged</div></div>
     </div>
   </section>
 
@@ -680,7 +707,7 @@ img{ max-width:100%; display:block; }
       <div class="tl" data-reveal data-d="1"><div class="yr">Aug 2025</div><h4>MOU with IYNC</h4><p>Bangladesh officially enters the global nuclear youth network as the 49th member nation. BYNC featured on IYNC's official platform.</p></div>
       <div class="tl" data-reveal data-d="2"><div class="yr">Dec 2025</div><h4>"Road to I4N" launched</h4><p>Campus sessions at Dhaka University & MIST. BYNC listed on IYNC's global YGN map. Keynote by Alice Cunha da Silva (IYNC Vice President / Westinghouse).</p></div>
       <div class="tl" data-reveal data-d="3"><div class="yr">Jan 2026</div><h4>Two more international keynotes</h4><p>Dr. Dinara Ermakova (IYNC Innovation Chair) and George Caliment (I4N Europe Lead, Assystem) address Bangladeshi students.</p></div>
-      <div class="tl" data-reveal data-d="4"><div class="yr">Now</div><h4>I4N Bangladesh 2026 is ready</h4><p>200+ students engaged and submissions rolling in. Event day set: 25 July 2026, Russian House, Dhaka.</p></div>
+      <div class="tl" data-reveal data-d="4"><div class="yr">Now</div><h4>I4N Bangladesh 2026 is ready</h4><p>1000+ students engaged and submissions rolling in. Event day set: 25 July 2026, Russian House, Dhaka.</p></div>
     </div>
   </div></section>
 
@@ -724,7 +751,7 @@ img{ max-width:100%; display:block; }
   <div class="event-head" data-reveal>
     <h2>Innovation for Nuclear (I4N) — Bangladesh 2026</h2>
     <p>Bangladesh's first national youth nuclear innovation competition and the national qualifying round of IYNC's flagship I4N. The winning team represents Bangladesh at the I4N Global Finale, IYNC 2026, Avignon.</p>
-    <div class="event-meta"><span>📆 25 July 2026</span><span>📍 Russian House, Dhaka</span><span>👥 300+ participants</span><span>🏆 3 segments</span></div>
+    <div class="event-meta"><span>📆 25 July 2026</span><span>📍 Russian House, Dhaka</span><span>👥 500+ participants</span><span>🏆 3 segments</span></div>
   </div>
   <div class="grid g3">
   <div class="seg" data-reveal data-d="1" draggable="true" style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -866,7 +893,7 @@ img{ max-width:100%; display:block; }
   <section class="section">
     <!-- Pitch line -->
     <div class="pitch" data-reveal>
-      <p>Your sponsorship powers two connected milestones: <b>I4N Bangladesh 2026</b> in Dhaka on 25 July, and Bangladesh's <b>first-ever National Pavilion at IYNC 2026</b> in Avignon, France this October. Your brand travels with us — from the national stage in Dhaka to the historic <b>Palais des Papes</b>, in front of the global nuclear industry.</p>
+      <p>We offer two distinct ways to partner with BYNC. <b>International Partners</b> back both <b>I4N Bangladesh 2026</b> in Dhaka and Bangladesh's <b>first-ever National Pavilion at IYNC 2026</b> in Avignon, France — your brand travels with us to the historic <b>Palais des Papes</b>, in front of the global nuclear industry. <b>Regional Partners</b> back <b>I4N Bangladesh 2026 only</b> — Bangladesh's national competition at Russian House, Dhaka, on 25 July 2026 — with a dedicated stall and full national visibility, at no international commitment.</p>
     </div>
 
     <!-- Step 1: what BYNC is buying -->
@@ -906,10 +933,12 @@ img{ max-width:100%; display:block; }
       </div>
     </div>
 
-    <!-- Tiers -->
+    <!-- Tiers: Track A — International Partnership -->
     <div style="margin-top:56px" data-reveal>
-      <div class="center"><span class="eyebrow">Choose Your Level</span><h2 class="h-title">Partnership tiers</h2>
-        <p class="h-sub">Every tier is a genuine partnership — not just a logo placement. Pick the level that matches your ambition.</p></div>
+      <div class="center">
+        <span class="track-label intl">TRACK A · INTERNATIONAL PARTNERSHIP</span>
+        <span class="eyebrow">Choose Your Level</span><h2 class="h-title">I4N Bangladesh 2026 + IYNC 2026 Avignon</h2>
+        <p class="h-sub">Every tier is a genuine partnership — not just a logo placement. Your brand appears at both I4N Bangladesh 2026 in Dhaka and the National Pavilion at IYNC 2026 in Avignon, France.</p></div>
       <div class="ptiers" style="margin-top:34px">
         <div class="ptier t-title"><div class="lvl">TITLE</div><div class="role">Founding Institutional Partner</div><div class="amt">৳8,00,000<small>BDT</small></div><div class="keyben"><b>Global brand travel to France</b> + full IYNC exhibition hall presence.</div></div>
         <div class="ptier t-gold"><div class="lvl">GOLD</div><div class="role">Principal Innovation Partner</div><div class="amt">৳6,50,000<small>BDT</small></div><div class="keyben"><b>VIP photo session</b> + post-event media feature.</div></div>
@@ -920,11 +949,30 @@ img{ max-width:100%; display:block; }
       <div class="note" data-reveal>The full tier-by-tier benefits breakdown is in the proposal. In-kind sponsorships (equipment, services, hospitality) are classified by equivalent value — <b>terms can be tailored on request.</b></div>
     </div>
 
+    <!-- Track divider -->
+    <div class="track-divider" data-reveal><span>OR PARTNER AT THE NATIONAL LEVEL</span></div>
+
+    <!-- Tiers: Track B — Regional Partnership (I4N Bangladesh 2026 only) -->
+    <div data-reveal>
+      <div class="center">
+        <span class="track-label reg">TRACK B · REGIONAL PARTNERSHIP</span>
+        <span class="eyebrow">I4N Bangladesh 2026 Only</span><h2 class="h-title">Regional Partnership Packages</h2>
+        <p class="h-sub">For organisations who want to back Bangladesh's national competition without the international commitment. Regional Partners support <b>I4N Bangladesh 2026</b> exclusively — the Innovation Competition, Project Showcase and Poster Presentation at Russian House, Dhaka, on 25 July 2026 — with a dedicated stall on-site and full national branding. This tier carries no IYNC 2026 Avignon component.</p></div>
+      <div class="ptiers" style="margin-top:34px">
+        <div class="ptier r-title"><div class="lvl">TITLE</div><div class="role">Founding Institutional Partner</div><div class="amt">৳1,00,000<small>BDT</small></div><div class="keyben"><b>Stall at Russian House</b> + top-tier branding across I4N Bangladesh 2026.</div></div>
+        <div class="ptier r-gold"><div class="lvl">GOLD</div><div class="role">Principal Innovation Partner</div><div class="amt">৳60,000<small>BDT</small></div><div class="keyben"><b>Stall at Russian House</b> + prominent stage and banner presence.</div></div>
+        <div class="ptier r-silver"><div class="lvl">SILVER</div><div class="role">Strategic Supporting Partner</div><div class="amt">৳40,000<small>BDT</small></div><div class="keyben"><b>Stall at Russian House</b> + logo on event materials and certificates.</div></div>
+        <div class="ptier r-bronze"><div class="lvl">BRONZE</div><div class="role">Community Innovation Partner</div><div class="amt">৳30,000<small>BDT</small></div><div class="keyben"><b>Stall at Russian House</b> + recognition in the event program.</div></div>
+        <div class="ptier r-support"><div class="lvl">SUPPORT</div><div class="role">Network Advancement Partner</div><div class="amt">৳20,000<small>BDT</small></div><div class="keyben"><b>Logo placement</b> + national media coverage for I4N Bangladesh 2026.</div></div>
+      </div>
+      <div class="note" data-reveal>Regional Partnership is scoped to <b>I4N Bangladesh 2026 at Russian House, Dhaka only</b> — it does not include IYNC 2026 Avignon benefits, delegate registrations, or National Pavilion presence. Organisations wishing to extend their partnership internationally can upgrade to an International Partnership tier at any time before the MOU deadline.</div>
+    </div>
+
     <!-- Payment -->
     <div style="margin-top:56px" data-reveal>
       <div class="center"><span class="eyebrow">Zero Financial Risk</span><h2 class="h-title">Payment structured to protect you</h2></div>
       <div class="paysteps">
-        <div class="paystep"><div class="pn">CONFIRM</div><h4>Sign the MOU by June 25, 2026</h4><p>Deadline is firm. Signing locks in your tier and all branding.</p></div>
+        <div class="paystep"><div class="pn">CONFIRM</div><h4>Sign the MOU by July 25, 2026</h4><p>Deadline is firm. Signing locks in your tier and all branding.</p></div>
         <div class="paystep"><div class="pn">20% UPFRONT</div><h4>Within 7 days of signing</h4><p>Secures your spot and activates your branding across both events.</p></div>
         <div class="paystep"><div class="pn">80% LATER</div><h4>After visa confirmation</h4><p>Invoiced only once delegate visas are confirmed (late Aug–Sep). No visa, no invoice — your money is safe.</p></div>
       </div>
@@ -934,7 +982,7 @@ img{ max-width:100%; display:block; }
     <!-- CTA -->
     <div style="margin-top:56px" data-reveal>
       <div class="cta-band">
-        <span class="urg">⏳ MOU deadline · June 25, 2026 — Title &amp; Gold spots limited</span>
+        <span class="urg">⏳ MOU deadline · July 25, 2026 — Title &amp; Gold spots limited</span>
         <div class="countdown" id="deadlineCountdown" aria-label="Time left to the sponsorship deadline">
           <div class="cdbox"><div class="num" data-cd="d">--</div><div class="lab">Days</div></div>
           <div class="cdbox"><div class="num" data-cd="h">--</div><div class="lab">Hours</div></div>
@@ -1126,7 +1174,7 @@ function countUp(scope){
 /* ---------------- Sponsorship deadline countdown ---------------- */
 (function(){
   const wrap=document.getElementById('deadlineCountdown'); if(!wrap) return;
-  const deadline=new Date('2026-06-25T23:59:59+06:00').getTime();
+  const deadline=new Date('2026-07-25T23:59:59+06:00').getTime();
   const set=(k,v)=>{ const el=wrap.querySelector('[data-cd="'+k+'"]'); if(el) el.textContent=v; };
   function tick(){
     let diff=deadline-Date.now();
