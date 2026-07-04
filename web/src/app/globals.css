@@ -1,44 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #070C16;
-  --color-bg2: #0A1322;
-  --color-bg3: #0E1B30;
-  --color-panel: #102038;
-  --color-cyan: #4FC3F7;
-  --color-cyan2: #7FDBFF;
-  --color-coral: #FF5C3B;
-  --color-coral2: #FF8463;
-  --color-ink: #F2F7FF;
-  --color-silver: #C2D2E4;
-  --color-muted: #889AB4;
-  --color-line: rgba(79, 195, 247, 0.16);
-  --color-line2: rgba(79, 195, 247, 0.38);
+  /* lifted off-black + softer ink — easier on the eyes, lower glare,
+     while body/heading text stays well above WCAG AA contrast. */
+  --color-bg: #0C1320;
+  --color-bg2: #111A2B;
+  --color-bg3: #16243E;
+  --color-panel: #1A2C4C;
+  --color-cyan: #62C7F2;
+  --color-cyan2: #8FD8F7;
+  --color-coral: #FF6F52;
+  --color-coral2: #FF936F;
+  --color-ink: #E8EEF6;
+  --color-silver: #BCC9DC;
+  --color-muted: #97A7BF;
+  --color-line: rgba(98, 199, 242, 0.14);
+  --color-line2: rgba(98, 199, 242, 0.32);
   --font-display: var(--font-space);
   --font-body: var(--font-inter);
 }
 
 :root { color-scheme: dark; }
 
-body {
-  background: var(--color-bg);
-  color: var(--color-silver);
-  font-family: var(--font-body), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+/* Base element styles live in @layer base so Tailwind utilities
+   (in @layer utilities) can override them — e.g. text colors on links. */
+@layer base {
+  body {
+    background: var(--color-bg);
+    color: var(--color-silver);
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    color: var(--color-ink);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+  }
+
+  a { color: inherit; text-decoration: none; }
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display), system-ui, sans-serif;
-  color: var(--color-ink);
-  line-height: 1.04;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-a { color: inherit; text-decoration: none; }
-
-::selection { background: rgba(255, 92, 59, 0.32); color: #fff; }
+::selection { background: rgba(255, 111, 82, 0.28); color: #fff; }
 ::-webkit-scrollbar { width: 11px; }
 ::-webkit-scrollbar-track { background: var(--color-bg2); }
 ::-webkit-scrollbar-thumb {
@@ -52,12 +58,12 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   z-index: 70;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.035;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.hl { position: relative; color: var(--color-coral); white-space: nowrap; }
+.hl { position: relative; color: var(--color-coral); white-space: nowrap; font-style: italic; }
 .hl::after {
   content: "";
   position: absolute;
@@ -72,9 +78,54 @@ a { color: inherit; text-decoration: none; }
 
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 @keyframes spin-rev { to { transform: rotate(-360deg); } }
+@keyframes spin-med { to { transform: rotate(360deg); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
-.animate-spin-slow { animation: spin-slow 24s linear infinite; }
-.animate-spin-rev { animation: spin-rev 18s linear infinite; }
+@keyframes float-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes pulse-glow { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.85; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.animate-spin-slow { animation: spin-slow 26s linear infinite; }
+.animate-spin-rev { animation: spin-rev 19s linear infinite; }
+.animate-spin-med { animation: spin-med 13s linear infinite; }
+.animate-marquee { animation: marquee 38s linear infinite; }
+.animate-float { animation: float-y 7s ease-in-out infinite; }
+.animate-float-slow { animation: float-y 10s ease-in-out infinite; }
+.animate-blink { animation: blink 1.6s ease-in-out infinite; }
+@keyframes scan { 0% { transform: translateX(-130%); } 100% { transform: translateX(430%); } }
+.divider-scan { animation: scan 6.5s ease-in-out infinite; }
+
+/* faint reactor dot-grid, faded toward the edges */
+.dot-grid {
+  background-image: radial-gradient(rgba(79, 195, 247, 0.16) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 78%);
+}
+
+/* rotating conic "reactor" glow used behind the atom */
+.conic-glow {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(79, 195, 247, 0.38) 80deg,
+    transparent 190deg,
+    rgba(255, 92, 59, 0.32) 290deg,
+    transparent 360deg
+  );
+}
+
+.glass {
+  background: rgba(16, 32, 56, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-line2);
+}
+
+.text-gradient {
+  background: linear-gradient(92deg, var(--color-cyan2), var(--color-coral2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

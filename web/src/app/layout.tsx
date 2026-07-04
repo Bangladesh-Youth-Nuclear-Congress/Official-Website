@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import Backdrop from "@/components/Backdrop";
+import ScrollProgress from "@/components/ScrollProgress";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const space = Space_Grotesk({
+const display = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   variable: "--font-space",
   display: "swap",
 });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
+// Update this to the final custom domain once it's connected.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bangladesh-youth-nuclear-congress.netlify.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bangladesh-youth-nuclear-congress.netlify.app"),
+  metadataBase: new URL(siteUrl),
   title: "BYNC — Bangladesh Youth Nuclear Congress",
   description:
     "Bangladesh's first youth-led nuclear organisation and official National Partner of IYNC. Home of Innovation for Nuclear (I4N) Bangladesh 2026.",
@@ -32,9 +39,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${space.variable} ${inter.variable}`}>
+    <html lang="en" className={`${display.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-bg text-silver antialiased">
+        <Backdrop />
         <div className="grain" aria-hidden />
+        <ScrollProgress />
         <SmoothScroll />
         <Nav />
         <main>{children}</main>
