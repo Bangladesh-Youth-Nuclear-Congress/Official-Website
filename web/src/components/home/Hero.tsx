@@ -112,8 +112,8 @@ function Orbit({ o }: { o: OrbitDef }) {
 
 const stats = [
   ["49th", "IYNC member nation"],
-  ["300+", "I4N participants"],
-  ["3", "International keynotes"],
+  ["500+", "I4N participants"],
+  ["1000+", "student engagement"],
 ];
 
 export default function Hero() {
@@ -122,11 +122,9 @@ export default function Hero() {
   const mvY = useMotionValue(0);
   const sx = useSpring(mvX, { stiffness: 120, damping: 18 });
   const sy = useSpring(mvY, { stiffness: 120, damping: 18 });
-  // atom drifts a little, chips drift more → parallax depth
+  // atom drifts a little for parallax depth
   const atomX = useTransform(sx, (v) => v * 16);
   const atomY = useTransform(sy, (v) => v * 16);
-  const chipX = useTransform(sx, (v) => v * 34);
-  const chipY = useTransform(sy, (v) => v * 34);
 
   const onMove = (e: React.MouseEvent) => {
     const r = sectionRef.current?.getBoundingClientRect();
@@ -170,24 +168,23 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-blink rounded-full bg-coral" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
               </span>
-              I4N Bangladesh 2026 — now recruiting
+              I4N Bangladesh 2026 — 1 August 2026
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-line2 bg-cyan/5 px-3.5 py-1.5 text-xs font-semibold text-cyan2">
-              <IconFlag /> IYNC National Partner
+              <IconFlag /> Official Young Generation Network of IYNC
             </span>
           </motion.div>
 
           <motion.h1
             variants={item}
-            className="mt-6 text-[clamp(2.6rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-ink"
+            className="mt-6 max-w-3xl text-[clamp(2.25rem,5.4vw,4.35rem)] font-semibold leading-[1.08] text-ink"
           >
             Powering Bangladesh&apos;s <span className="hl">Nuclear Future</span>
           </motion.h1>
 
           <motion.p variants={item} className="mt-6 max-w-xl text-lg leading-relaxed text-silver">
-            We&apos;re the students, researchers and builders writing Bangladesh&apos;s nuclear
-            story — from the reactors rising at Rooppur to the world stage at IYNC in France. Come
-            build it with us.
+            Bangladesh&apos;s first youth-led nuclear organisation — connecting the nation&apos;s
+            brightest STEM minds to the global nuclear community as we enter the post-Rooppur era.
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap gap-4">
@@ -258,22 +255,6 @@ export default function Hero() {
               priority
               className="drop-shadow-[0_0_34px_rgba(98,199,242,0.4)]"
             />
-          </motion.div>
-
-          {/* floating data chips (extra parallax) */}
-          <motion.div
-            style={{ x: chipX, y: chipY }}
-            className="glass animate-float absolute -left-2 top-[14%] rounded-xl px-3.5 py-2 text-left shadow-xl"
-          >
-            <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted">Flagship</div>
-            <div className="font-display text-sm font-semibold text-ink">25 Jul · Dhaka</div>
-          </motion.div>
-          <motion.div
-            style={{ x: chipX, y: chipY }}
-            className="glass animate-float-slow absolute -right-2 bottom-[16%] rounded-xl px-3.5 py-2 text-left shadow-xl"
-          >
-            <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted">Global stage</div>
-            <div className="font-display text-sm font-semibold text-gradient">IYNC Avignon 2026</div>
           </motion.div>
         </motion.div>
       </div>

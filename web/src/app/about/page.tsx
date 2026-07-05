@@ -20,15 +20,15 @@ const values = [
 ];
 
 const ecosystem: [string, string[]][] = [
-  ["Academic", ["Dhaka University", "MIST", "BUET (INPE)"]],
+  ["Academic", ["Dhaka University", "MIST"]],
   ["Government & Regulatory", ["BAEC", "BAERA", "NPCBL — Rooppur"]],
   ["International", ["IYNC", "Russian House Dhaka", "Rosatom"]],
 ];
 
 const team = [
   { img: "/assets/team/sami.jpg", n: "Mhamudul Hasan Sami", r: "Founder & President" },
-  { img: "/assets/team/sadia.jpg", n: "Sadia Noushin Promi", r: "Co-founder & Vice President" },
   { img: "/assets/team/nazifa.jpg", n: "Nazifa Tasnim", r: "Co-founder & General Secretary" },
+  { img: "/assets/team/sadia.jpg", n: "Sadia Noushin Promi", r: "Co-founder & Vice President" },
   {
     img: "/assets/team/shafiq.jpg",
     n: "Prof. Dr. MD Shafiqul Islam",
@@ -47,10 +47,10 @@ export default function AboutPage() {
         crumb="About"
         title={
           <>
-            We&apos;re building the people behind <span className="hl">the reactors</span>
+            We are building <span className="hl">next generation youth leaders</span>
           </>
         }
-        subtitle="Founded in June 2025, Bangladesh Youth Nuclear Congress is the country's first and only young-generation-led nuclear organisation — and the official national partner of IYNC."
+        subtitle="Founded in June 2025, Bangladesh Youth Nuclear Congress is the country's first and only young-generation-led nuclear organisation — and the official Young Generation Network (YGN) of IYNC."
       />
 
       {/* origin */}
@@ -75,8 +75,8 @@ export default function AboutPage() {
             <h3 className="mt-5 font-display text-xl font-semibold text-ink">Our Mission</h3>
             <p className="mt-3 leading-relaxed text-silver">
               To unite, empower and internationally represent the young generation of nuclear
-              scientists and students in Bangladesh — working where nuclear innovation, youth
-              empowerment and the UN Sustainable Development Goals meet.
+              scientists and students in Bangladesh — advancing peaceful nuclear innovation, SDG-aligned
+              problem-solving and clean-energy leadership.
             </p>
           </Reveal>
           <Reveal
@@ -169,28 +169,25 @@ export default function AboutPage() {
             title="A student-led team, guided by senior nuclear academics"
             center
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {team.map((m, i) => (
               <Reveal
                 key={m.n}
-                delay={i * 0.06}
-                className="group overflow-hidden rounded-2xl border border-line bg-bg3/60 text-center transition-colors hover:border-line2"
+                delay={i * 0.05}
+                className="group rounded-2xl border border-line bg-bg3/70 px-4 py-6 text-center shadow-[0_18px_45px_rgba(0,0,0,0.12)] transition hover:-translate-y-1 hover:border-line2"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <div className="relative mx-auto h-[70px] w-[70px] overflow-hidden rounded-full border border-line2 bg-bg2">
                   <Image
                     src={m.img}
                     alt={m.n}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                    sizes="70px"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg3 via-bg3/10 to-transparent" />
                 </div>
-                <div className="px-6 pb-7 pt-5">
-                  <h4 className="font-display text-base font-semibold text-ink">{m.n}</h4>
-                  <p className="mt-1 text-sm text-cyan2">{m.r}</p>
-                  {m.o && <p className="mt-1 text-xs leading-relaxed text-muted">{m.o}</p>}
-                </div>
+                <h4 className="mt-4 font-display text-sm font-semibold text-ink">{m.n}</h4>
+                <p className="mt-1 text-xs font-medium text-cyan2">{m.r}</p>
+                {m.o && <p className="mt-1 text-[11.5px] leading-relaxed text-muted">{m.o}</p>}
               </Reveal>
             ))}
           </div>

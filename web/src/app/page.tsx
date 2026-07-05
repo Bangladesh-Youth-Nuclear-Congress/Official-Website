@@ -2,6 +2,7 @@ import Link from "next/link";
 import Hero from "@/components/home/Hero";
 import Ticker from "@/components/home/Ticker";
 import Pillars from "@/components/home/Pillars";
+import NuclearEra from "@/components/home/NuclearEra";
 import Divider from "@/components/Divider";
 import Reveal from "@/components/Reveal";
 import { IconArrow } from "@/components/icons";
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Ticker />
       <Pillars />
+      <NuclearEra />
       <Divider />
 
       <section className="px-6 py-20 lg:px-10">

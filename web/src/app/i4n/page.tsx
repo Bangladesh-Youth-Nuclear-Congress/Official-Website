@@ -16,13 +16,13 @@ import {
 export const metadata: Metadata = {
   title: "I4N Bangladesh 2026 — BYNC",
   description:
-    "Innovation for Nuclear (I4N) Bangladesh 2026 — the national qualifying round of IYNC's flagship competition. 25 July 2026, Russian House, Dhaka. Three segments, 300+ participants, winners advance to Avignon.",
+    "Innovation for Nuclear (I4N) Bangladesh 2026 — the national qualifying round of IYNC's flagship competition. 1 August 2026, Russian House, Dhaka. Three segments, 500+ participants, winners advance to Avignon.",
 };
 
 const meta = [
-  { icon: IconCalendar, label: "25 July 2026" },
+  { icon: IconCalendar, label: "1 August 2026" },
   { icon: IconPin, label: "Russian House, Dhaka" },
-  { icon: IconUsers, label: "300+ participants" },
+  { icon: IconUsers, label: "500+ participants" },
   { icon: IconTrophy, label: "3 segments" },
 ];
 
@@ -146,7 +146,7 @@ export default function I4NPage() {
             subtitle="National winners of I4N Bangladesh 2026 advance to the I4N Global Finale at IYNC 2026 in Avignon, France — carrying Bangladesh's nuclear innovation to the world stage, with an IYNC travel grant for finalists."
           />
           <Reveal delay={0.1} className="mt-8 flex flex-wrap items-center gap-3 text-sm text-silver">
-            <span className="rounded-full border border-line bg-bg3/60 px-4 py-2">Dhaka · 25 July 2026</span>
+            <span className="rounded-full border border-line bg-bg3/60 px-4 py-2">Dhaka · 1 August 2026</span>
             <IconArrow width={18} height={18} className="text-coral" />
             <span className="rounded-full border border-line bg-bg3/60 px-4 py-2">Avignon · 4–9 October 2026</span>
             <IconArrow width={18} height={18} className="text-coral" />

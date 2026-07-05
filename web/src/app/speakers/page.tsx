@@ -1,37 +1,35 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Speakers — BYNC",
+  title: "Activities — BYNC",
   description:
     "The international voices who have addressed Bangladeshi students through BYNC — including IYNC Vice President Alice Cunha da Silva, IYNC Innovation Chair Dr. Dinara Ermakova, and I4N Europe Lead George Caliment.",
 };
 
 const speakers = [
   {
-    i: "AC",
+    img: "/assets/speakers/alice.jpg",
     n: "Alice Cunha da Silva",
     r: "IYNC Vice President",
     o: "Westinghouse",
-    g: "from-[#2E6DB4] to-[#173863]",
-    bio: "Opened BYNC's “Road to I4N” with a candid talk on building a global nuclear career — from anywhere in the world, Bangladesh included.",
+    bio: "Opened BYNC's Road to I4N with a candid talk on building a global nuclear career — from anywhere in the world, Bangladesh included.",
   },
   {
-    i: "DE",
+    img: "/assets/speakers/dinara.jpg",
     n: "Dr. Dinara Ermakova",
     r: "IYNC Innovation Chair",
     o: "International Youth Nuclear Congress",
-    g: "from-[#6B1A4B] to-[#3D0D2A]",
     bio: "Spoke to Bangladeshi students on turning early nuclear ideas into real, fundable innovation — and what judges actually look for.",
   },
   {
-    i: "GC",
+    img: "/assets/speakers/george.jpg",
     n: "George Caliment",
     r: "I4N Europe Lead",
     o: "Assystem",
-    g: "from-[#173863] to-[#0D2040]",
     bio: "Walked students through how I4N works on the world stage, and what a Bangladeshi team should aim for to stand out at the global finale.",
   },
 ];
@@ -40,7 +38,7 @@ export default function SpeakersPage() {
   return (
     <>
       <PageHero
-        crumb="Speakers"
+        crumb="Activities"
         title={
           <>
             The voices that <span className="hl">crossed borders</span> for our students
@@ -51,21 +49,27 @@ export default function SpeakersPage() {
 
       <section className="mx-auto max-w-[1200px] px-6 py-20 lg:px-10">
         <div className="grid gap-6 md:grid-cols-3">
-          {speakers.map((s, i) => (
+          {speakers.map((speaker, i) => (
             <Reveal
-              key={s.n}
+              key={speaker.n}
               delay={i * 0.08}
-              className="group flex h-full flex-col rounded-2xl border border-line bg-bg3/60 p-7 transition-colors hover:border-line2"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-bg3/60 transition-colors hover:border-line2"
             >
-              <div
-                className={`grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br ${s.g} font-display text-lg font-bold text-white ring-1 ring-line2`}
-              >
-                {s.i}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-bg2">
+                <Image
+                  src={speaker.img}
+                  alt={speaker.n}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              <h3 className="mt-5 font-display text-xl font-semibold text-ink">{s.n}</h3>
-              <p className="mt-1 text-sm font-semibold text-cyan2">{s.r}</p>
-              <p className="text-xs text-muted">{s.o}</p>
-              <p className="mt-4 text-sm leading-relaxed text-silver">{s.bio}</p>
+              <div className="flex flex-1 flex-col p-7">
+                <h3 className="text-xl font-semibold text-ink">{speaker.n}</h3>
+                <p className="mt-1 text-sm font-semibold text-cyan2">{speaker.r}</p>
+                <p className="text-xs text-muted">{speaker.o}</p>
+                <p className="mt-4 text-sm leading-relaxed text-silver">{speaker.bio}</p>
+              </div>
             </Reveal>
           ))}
         </div>

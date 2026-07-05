@@ -42,7 +42,7 @@ const bronze = [
 ];
 
 const valueAdd = [
-  { icon: IconTarget, t: "Two stages, one sponsorship", b: "Your brand appears at I4N Bangladesh 2026 in Dhaka (25 July) and at IYNC 2026 in Avignon (October). Most sponsors get one event — you get both." },
+  { icon: IconTarget, t: "Two stages, one sponsorship", b: "Your brand appears at I4N Bangladesh 2026 in Dhaka (1 August 2026) and at IYNC 2026 in Avignon (October). Most sponsors get one event — you get both." },
   { icon: IconNewspaper, t: "National media & press", b: "BYNC actively pursues national press for I4N. Your name appears in every press release, certificate (120+), banner and announcement." },
   { icon: IconUsers, t: "The nuclear talent pipeline", b: "Direct access to Bangladesh's best nuclear engineering students and young professionals — the people who will work at BAEC, NPCBL and Rooppur NPP." },
 ];
@@ -56,9 +56,9 @@ const tiers = [
 ];
 
 const payment = [
-  { icon: IconShield, pn: "Confirm", t: "Sign the MOU by 25 June 2026", b: "The deadline is firm. Signing locks in your tier and all branding." },
+  { icon: IconShield, pn: "Confirm", t: "Sign the MOU", b: "Signing locks in your tier and all branding." },
   { icon: IconClock, pn: "20% upfront", t: "Within 7 days of signing", b: "Secures your spot and activates your branding across both events." },
-  { icon: IconCheck, pn: "80% later", t: "After visa confirmation", b: "Invoiced only once delegate visas are confirmed (late Aug–Sep). No visa, no invoice — your money is safe." },
+  { icon: IconCheck, pn: "80% later", t: "After visa confirmation", b: "Invoiced only once delegate visas are confirmed (late Aug–Sep). No visa, no invoice — your money is safe. NB: for the IYNC 2026 Bronze Package only, not the regional I4N competition." },
 ];
 
 export default function SponsorsPage() {
@@ -79,7 +79,7 @@ export default function SponsorsPage() {
         <Reveal className="rounded-r-2xl border-l-4 border-cyan bg-gradient-to-r from-cyan/10 to-transparent p-8 md:p-10">
           <p className="font-display text-[clamp(1.2rem,2.4vw,1.7rem)] font-medium leading-snug text-ink">
             Your sponsorship powers two connected milestones: <span className="text-cyan2">I4N Bangladesh 2026</span> in
-            Dhaka on 25 July, and Bangladesh&apos;s <span className="text-cyan2">first-ever National Pavilion at IYNC
+            Dhaka on 1 August 2026, and Bangladesh&apos;s <span className="text-cyan2">first-ever National Pavilion at IYNC
             2026</span> in Avignon, France this October. Your brand travels with us — from the national stage in Dhaka
             to the historic <span className="text-cyan2">Palais des Papes</span>, in front of the global nuclear
             industry.
@@ -180,6 +180,30 @@ export default function SponsorsPage() {
         </div>
       </section>
 
+
+      {/* regional sponsor */}
+      <section className="mx-auto max-w-[1200px] px-6 py-20 lg:px-10">
+        <SectionHeading
+          eyebrow="Regional sponsor"
+          title="Regional I4N Competition Sponsor"
+          subtitle="For partners who want to support the national I4N Bangladesh competition directly, separate from the IYNC 2026 Bronze Package."
+          center
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <Card icon={IconTarget} title="Competition visibility">
+            Brand presence at I4N Bangladesh 2026 in Bangladesh, including event banners, announcements and certificates.
+          </Card>
+          <Card icon={IconNewspaper} title="National media & press" delay={0.08}>
+            BYNC actively pursues national press for I4N Bangladesh 2026. Your name appears in event communications and post-event coverage.
+          </Card>
+          <Card icon={IconUsers} title="The nuclear talent pipeline" delay={0.16}>
+            Direct access to Bangladesh&apos;s best nuclear engineering students and young professionals — the people who will work at BAEC, NPCBL and Rooppur NPP.
+          </Card>
+        </div>
+        <Reveal delay={0.1} className="mx-auto mt-8 max-w-2xl rounded-xl border border-line bg-cyan/5 p-5 text-center text-sm text-muted">
+          Regional sponsorship can be tailored by equivalent value, in-kind support, hospitality, equipment or services.
+        </Reveal>
+      </section>
       {/* payment */}
       <section className="mx-auto max-w-[1200px] px-6 py-20 lg:px-10">
         <SectionHeading eyebrow="Zero financial risk" title="Payment structured to protect you" center />
@@ -210,7 +234,7 @@ export default function SponsorsPage() {
           />
           <div className="relative">
             <span className="inline-flex items-center gap-2 rounded-full border border-coral/40 bg-coral/10 px-4 py-1.5 text-xs font-semibold text-coral2">
-              <IconClock width={15} height={15} /> MOU deadline · 25 June 2026 — Title &amp; Gold spots limited
+              <IconClock width={15} height={15} /> MOU deadline · June 25, 2026 — Title &amp; Gold spots limited
             </span>
             <div className="mt-7">
               <Countdown />
