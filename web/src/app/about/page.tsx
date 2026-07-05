@@ -57,8 +57,9 @@ export default function AboutPage() {
       <section className="mx-auto max-w-[1200px] px-6 py-20 lg:px-10">
         <Reveal className="max-w-3xl">
           <p className="text-xl leading-relaxed text-silver">
-            BYNC started with a simple frustration: Bangladesh was building reactors faster than it
-            was building the people to run them. So in 2025, a handful of students at MIST and Dhaka
+            BYNC started with a simple conviction: as Bangladesh steps into advanced, fast-emerging
+            nuclear technologies, we need to keep pace by spreading awareness, building knowledge and
+            preparing the next generation to lead. So in 2025, a handful of students at MIST and Dhaka
             University decided to do something about it — and within months we became the{" "}
             <span className="text-cyan2">49th national member of IYNC</span>, the global network of
             young nuclear professionals.
