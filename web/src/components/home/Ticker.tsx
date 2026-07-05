@@ -2,8 +2,7 @@ const words = [
   "Innovation for Nuclear",
   "The Rooppur Era",
   "IYNC · 49th Member Nation",
-  "Youth-Led, Bangladesh-Born",
-  "Road to Avignon 2026",
+  "Young-Generation-Led, Bangladesh-Born",
   "Compete · Connect · Represent",
 ];
 

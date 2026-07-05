@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "BYNC — Bangladesh Youth Nuclear Congress",
   description:
-    "Bangladesh's first youth-led nuclear organisation and official National Partner of IYNC. Home of Innovation for Nuclear (I4N) Bangladesh 2026.",
+    "Bangladesh's first young-generation-led nuclear organisation and official National Partner of IYNC. Home of Innovation for Nuclear (I4N) Bangladesh 2026.",
   openGraph: {
     title: "Bangladesh Youth Nuclear Congress (BYNC)",
     description:
-      "Bangladesh's first youth-led nuclear organisation · Official National Partner of IYNC (49th member nation).",
+      "Bangladesh's first young-generation-led nuclear organisation · Official National Partner of IYNC (49th member nation).",
     images: ["/assets/bync-banner.jpg"],
     type: "website",
   },

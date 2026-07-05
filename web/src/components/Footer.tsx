@@ -40,7 +40,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-            Bangladesh&apos;s first youth-led nuclear organisation and the 49th national member of IYNC.
+            Bangladesh&apos;s first young-generation-led nuclear organisation and the 49th national member of IYNC.
           </p>
           <div className="mt-5 flex gap-2.5">
             {socials.map(([n, u]) => (

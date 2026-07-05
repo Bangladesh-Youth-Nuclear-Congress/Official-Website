@@ -272,7 +272,7 @@ export default function Hero() {
             style={{ x: chipX, y: chipY }}
             className="glass animate-float-slow absolute -right-2 bottom-[16%] rounded-xl px-3.5 py-2 text-left shadow-xl"
           >
-            <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted">Road to</div>
+            <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted">Global stage</div>
             <div className="font-display text-sm font-semibold text-gradient">IYNC Avignon 2026</div>
           </motion.div>
         </motion.div>

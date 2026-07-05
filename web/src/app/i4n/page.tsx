@@ -70,7 +70,7 @@ export default function I4NPage() {
             Innovation for Nuclear <span className="hl">2026</span>
           </>
         }
-        subtitle="Bangladesh's first national youth nuclear innovation competition — and the qualifying round of IYNC's flagship I4N. The national winners carry Bangladesh's name to Avignon."
+        subtitle="Bangladesh's first national young generation nuclear innovation competition — and the qualifying round of IYNC's flagship I4N. The national winners carry Bangladesh's name to Avignon."
       />
 
       {/* event facts band */}
@@ -137,11 +137,11 @@ export default function I4NPage() {
         </div>
       </section>
 
-      {/* road to avignon */}
+      {/* global finale */}
       <section className="border-y border-line bg-bg2/40">
         <div className="mx-auto max-w-[1200px] px-6 py-20 lg:px-10">
           <SectionHeading
-            eyebrow="Road to Avignon"
+            eyebrow="The Global Finale"
             title="The winners don't just win — they travel"
             subtitle="National winners of I4N Bangladesh 2026 advance to the I4N Global Finale at IYNC 2026 in Avignon, France — carrying Bangladesh's nuclear innovation to the world stage, with an IYNC travel grant for finalists."
           />

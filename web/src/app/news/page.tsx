@@ -32,7 +32,7 @@ const news = [
     date: "August 2025",
     tag: "Membership",
     title: "Bangladesh joins IYNC as the 49th member nation",
-    body: "The MOU with IYNC made it official — Bangladesh entered the global youth nuclear network, and BYNC was featured on IYNC's official platform.",
+    body: "The MOU with IYNC made it official — Bangladesh entered the global young generation nuclear network, and BYNC was featured on IYNC's official platform.",
   },
 ];
 

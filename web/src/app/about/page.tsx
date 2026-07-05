@@ -9,13 +9,13 @@ import { IconTarget, IconEye, IconCheck } from "@/components/icons";
 export const metadata: Metadata = {
   title: "About — BYNC",
   description:
-    "Bangladesh Youth Nuclear Congress (BYNC) — founded June 2025, Bangladesh's first youth-led nuclear organisation and the 49th national member of IYNC. Our mission, values, ecosystem and team.",
+    "Bangladesh Youth Nuclear Congress (BYNC) — founded June 2025, Bangladesh's first young-generation-led nuclear organisation and the 49th national member of IYNC. Our mission, values, ecosystem and team.",
 };
 
 const values = [
   ["Knowledge Transfer", "Bridging senior scientists and the next generation through workshops, talks and IYNC programming."],
   ["Peaceful Nuclear Use", "Advocating strictly for civilian, clean-energy applications of nuclear science."],
-  ["Global Representation", "Giving Bangladesh a clear, professional voice in the international youth nuclear network."],
+  ["Global Representation", "Giving Bangladesh a clear, professional voice in the international young generation nuclear network."],
   ["Innovation & SDGs", "Running I4N to push student-led nuclear problem-solving onto the global stage."],
 ];
 
@@ -50,7 +50,7 @@ export default function AboutPage() {
             We&apos;re building the people behind <span className="hl">the reactors</span>
           </>
         }
-        subtitle="Founded in June 2025, Bangladesh Youth Nuclear Congress is the country's first and only youth-led nuclear organisation — and the official national partner of IYNC."
+        subtitle="Founded in June 2025, Bangladesh Youth Nuclear Congress is the country's first and only young-generation-led nuclear organisation — and the official national partner of IYNC."
       />
 
       {/* origin */}
@@ -87,7 +87,7 @@ export default function AboutPage() {
             </div>
             <h3 className="mt-5 font-display text-xl font-semibold text-ink">Our Vision</h3>
             <p className="mt-3 leading-relaxed text-silver">
-              A Bangladesh where a skilled, globally-connected youth nuclear community drives the
+              A Bangladesh where a skilled, globally-connected young generation nuclear community drives the
               country&apos;s clean-energy transition — and leads the post-Rooppur future on the world
               stage.
             </p>

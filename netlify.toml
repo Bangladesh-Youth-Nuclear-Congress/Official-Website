@@ -1,7 +1,7 @@
-# Netlify build config — Next.js app lives in web/
+# Netlify build config — Next.js app lives in web/, deployed as a static export.
 [build]
   base = "web"
   command = "npm run build"
-
-# Netlify auto-detects Next.js and applies @netlify/plugin-nextjs
-# (App Router SSR/ISR + image optimization). No publish dir needed.
+  # `next build` with output:"export" writes static files to web/out.
+  # publish is resolved relative to base, so this points at web/out.
+  publish = "out"

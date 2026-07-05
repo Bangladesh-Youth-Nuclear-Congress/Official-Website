@@ -38,7 +38,7 @@ export default function EventsPage() {
             From a Dhaka stage to the <span className="hl">Palais des Papes</span>
           </>
         }
-        subtitle="Two milestones, one journey. Here's where BYNC shows up in 2026 — and how a competition in Dhaka becomes a seat at the world's biggest youth nuclear congress."
+        subtitle="Two milestones, one journey. Here's where BYNC shows up in 2026 — and how a competition in Dhaka becomes a seat at the world's biggest young generation nuclear congress."
       />
 
       {/* flagship events */}

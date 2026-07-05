@@ -60,7 +60,7 @@ const tiers = [
 const faqs = [
   ["Who can join BYNC?", "Any student or young professional (under 35) in nuclear science, nuclear engineering or a related field in Bangladesh. Students from MIST, Dhaka University and BUET are especially encouraged."],
   ["How do I get on the IYNC delegation?", "It's competitive — based on your I4N performance, academic background and overall contribution to BYNC. Top performers at I4N Bangladesh 2026 are strongly prioritised."],
-  ["Is BYNC formally registered?", "BYNC operates as a youth nuclear network under academic supervision, and is the official national partner of IYNC. Formal registration is in progress."],
+  ["Is BYNC formally registered?", "BYNC operates as a young generation nuclear network under academic supervision, and is the official national partner of IYNC. Formal registration is in progress."],
   ["Can companies partner with BYNC?", "Yes. We offer MOU-based partnerships and sponsorship roles for organisations in energy, technology and beyond. See the Sponsors page or get in touch."],
 ];
 
