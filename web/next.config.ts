@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   // Emit /about/index.html so clean URLs resolve on a static host.
   trailingSlash: true,
+  basePath: "/Official-Website",
+  assetPrefix: "/Official-Website/",
 };
 
 export default nextConfig;
