@@ -89,7 +89,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="inline-flex items-center gap-2.5">
-              <Image src="/assets/bync-logo.png" alt="BYNC" width={36} height={36} />
+              <Image src="/Official-Website/assets/bync-logo.png" alt="BYNC" width={36} height={36} />
               <span className="font-display text-lg font-bold text-ink">
                 BY<span className="text-cyan">NC</span>
               </span>

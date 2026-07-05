@@ -26,18 +26,18 @@ const ecosystem: [string, string[]][] = [
 ];
 
 const team = [
-  { img: "/assets/team/sami.jpg", n: "Mhamudul Hasan Sami", r: "Founder & President" },
-  { img: "/assets/team/nazifa.jpg", n: "Nazifa Tasnim", r: "Co-founder & General Secretary" },
-  { img: "/assets/team/sadia.jpg", n: "Sadia Noushin Promi", r: "Co-founder & Vice President" },
+  { img: "/Official-Website/assets/team/sami.jpg", n: "Mhamudul Hasan Sami", r: "Founder & President" },
+  { img: "/Official-Website/assets/team/nazifa.jpg", n: "Nazifa Tasnim", r: "Co-founder & General Secretary" },
+  { img: "/Official-Website/assets/team/sadia.jpg", n: "Sadia Noushin Promi", r: "Co-founder & Vice President" },
   {
-    img: "/assets/team/shafiq.jpg",
+    img: "/Official-Website/assets/team/shafiq.jpg",
     n: "Prof. Dr. MD Shafiqul Islam",
     r: "Chief Advisor",
     o: "Ex-Director, BAEC · Nuclear Engineering, Dhaka University",
   },
-  { img: "/assets/team/zareen.jpg", n: "Zareen Tahsin Anjum", r: "Treasurer" },
-  { img: "/assets/team/fahim.jpg", n: "Fahim Sabab Siddique", r: "Advisor" },
-  { img: "/assets/team/tamim.jpg", n: "Tamim Muhammad Rayeed", r: "Webmaster & Developer" },
+  { img: "/Official-Website/assets/team/zareen.jpg", n: "Zareen Tahsin Anjum", r: "Treasurer" },
+  { img: "/Official-Website/assets/team/fahim.jpg", n: "Fahim Sabab Siddique", r: "Advisor" },
+  { img: "/Official-Website/assets/team/tamim.jpg", n: "Tamim Muhammad Rayeed", r: "Webmaster & Developer" },
 ];
 
 export default function AboutPage() {
@@ -98,7 +98,7 @@ export default function AboutPage() {
         {/* banner */}
         <Reveal delay={0.1} className="mt-8 overflow-hidden rounded-3xl border border-line">
           <Image
-            src="/assets/bync-banner.jpg"
+            src="/Official-Website/assets/bync-banner.jpg"
             alt="Bangladesh Youth Nuclear Congress"
             width={1600}
             height={520}

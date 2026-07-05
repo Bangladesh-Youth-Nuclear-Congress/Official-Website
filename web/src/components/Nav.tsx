@@ -36,7 +36,7 @@ export default function Nav() {
     >
       <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2.5">
-          <Image src="/assets/bync-logo.png" alt="BYNC" width={34} height={34} priority />
+          <Image src="/Official-Website/assets/bync-logo.png" alt="BYNC" width={34} height={34} priority />
           <span className="font-display text-sm font-semibold text-ink sm:text-base">
             Bangladesh Youth Nuclear Congress <span className="text-cyan">(BYNC)</span>
           </span>
