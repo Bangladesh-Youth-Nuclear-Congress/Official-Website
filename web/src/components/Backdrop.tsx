@@ -13,7 +13,7 @@ export default function Backdrop() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       {/* static base wash */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(79,195,247,0.10),transparent_42%),radial-gradient(circle_at_85%_85%,rgba(255,92,59,0.08),transparent_45%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(79,195,247,0.10),transparent_42%),radial-gradient(circle_at_85%_85%,rgba(59,130,246,0.08),transparent_45%)]" />
 
       {/* slowly panning reactor grid */}
       <motion.div

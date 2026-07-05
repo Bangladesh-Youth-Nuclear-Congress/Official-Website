@@ -37,7 +37,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 href="/get-involved"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#FF8163] to-[#EE5A38] px-7 py-3.5 font-display font-semibold text-[#15110c] shadow-[0_6px_18px_-10px_rgba(238,90,56,0.5)] transition hover:brightness-[1.05]"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#4C93F2] to-[#2563EB] px-7 py-3.5 font-display font-semibold text-white shadow-[0_6px_18px_-10px_rgba(37,99,235,0.45)] transition hover:brightness-[1.05]"
               >
                 Join BYNC <IconArrow width={18} height={18} />
               </Link>

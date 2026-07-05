@@ -95,7 +95,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={sending}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#FF8163] to-[#EE5A38] px-7 py-3.5 font-display font-semibold text-[#15110c] transition hover:brightness-[1.05] disabled:opacity-70"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#4C93F2] to-[#2563EB] px-7 py-3.5 font-display font-semibold text-white transition hover:brightness-[1.05] disabled:opacity-70"
       >
         {sending ? "Sending…" : "Send message"} {!sending && <IconArrow width={18} height={18} />}
       </button>

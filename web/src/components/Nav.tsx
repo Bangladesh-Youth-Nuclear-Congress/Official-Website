@@ -52,7 +52,7 @@ export default function Nav() {
 
         <Link
           href="/get-involved"
-          className="hidden rounded-full bg-gradient-to-br from-[#FF8163] to-[#EE5A38] px-5 py-2 text-sm font-semibold text-[#15110c] transition hover:brightness-105 lg:inline-block"
+          className="hidden rounded-full bg-gradient-to-br from-[#4C93F2] to-[#2563EB] px-5 py-2 text-sm font-semibold text-white transition hover:brightness-105 lg:inline-block"
         >
           Join BYNC
         </Link>
@@ -75,7 +75,7 @@ export default function Nav() {
           ))}
           <Link
             href="/get-involved"
-            className="mt-2 rounded-full bg-gradient-to-br from-[#FF8163] to-[#EE5A38] px-5 py-2.5 text-center text-sm font-semibold text-[#15110c]"
+            className="mt-2 rounded-full bg-gradient-to-br from-[#4C93F2] to-[#2563EB] px-5 py-2.5 text-center text-sm font-semibold text-white"
             onClick={() => setOpen(false)}
           >
             Join BYNC

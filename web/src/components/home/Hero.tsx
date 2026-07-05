@@ -85,8 +85,8 @@ const orbits: OrbitDef[] = [
     rvis: 0.22,
     inset: "inset-[28%]",
     dir: "animate-spin-med",
-    dot: "h-2.5 w-2.5 bg-coral shadow-[0_0_11px_3px_rgba(255,111,82,0.5)]",
-    dot2: "h-1.5 w-1.5 bg-coral2 shadow-[0_0_8px_2px_rgba(255,147,111,0.45)]",
+    dot: "h-2.5 w-2.5 bg-coral shadow-[0_0_11px_3px_rgba(59,130,246,0.5)]",
+    dot2: "h-1.5 w-1.5 bg-coral2 shadow-[0_0_8px_2px_rgba(96,165,250,0.45)]",
   },
 ];
 
@@ -194,7 +194,7 @@ export default function Hero() {
             <Magnetic>
               <Link
                 href="/get-involved"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#FF8163] to-[#EE5A38] px-7 py-3.5 font-display text-base font-semibold text-[#15110c] shadow-[0_6px_18px_-10px_rgba(238,90,56,0.5)] transition hover:brightness-[1.05]"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#4C93F2] to-[#2563EB] px-7 py-3.5 font-display text-base font-semibold text-white shadow-[0_6px_18px_-10px_rgba(37,99,235,0.45)] transition hover:brightness-[1.05]"
               >
                 Join the Movement <IconArrow width={18} height={18} />
               </Link>
