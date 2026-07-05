@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -19,6 +20,9 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const currentPath = pathname.replace(/^\/Official-Website/, "") || "/";
+  const isActive = (href: string) => href === "/" ? currentPath === "/" : currentPath === href || currentPath.startsWith(`${href}/`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -44,7 +48,16 @@ export default function Nav() {
 
         <div className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-sm text-silver transition-colors hover:text-ink">
+            <Link
+              key={l.href}
+              href={l.href}
+              className={cn(
+                "relative py-5 text-sm transition-colors after:absolute after:inset-x-0 after:bottom-3 after:h-0.5 after:origin-center after:rounded-full after:bg-cyan after:transition-transform",
+                isActive(l.href)
+                  ? "text-ink after:scale-x-100"
+                  : "text-silver after:scale-x-0 hover:text-ink hover:after:scale-x-100"
+              )}
+            >
               {l.label}
             </Link>
           ))}
@@ -69,7 +82,15 @@ export default function Nav() {
       {open && (
         <div className="flex flex-col border-t border-line bg-bg2 px-6 py-3 lg:hidden">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="py-2.5 text-silver" onClick={() => setOpen(false)}>
+            <Link
+              key={l.href}
+              href={l.href}
+              className={cn(
+                "border-l-2 py-2.5 pl-3 transition-colors",
+                isActive(l.href) ? "border-cyan text-ink" : "border-transparent text-silver"
+              )}
+              onClick={() => setOpen(false)}
+            >
               {l.label}
             </Link>
           ))}

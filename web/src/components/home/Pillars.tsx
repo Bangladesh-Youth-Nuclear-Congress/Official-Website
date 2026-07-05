@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { IconAtom, IconGlobe, IconNetwork, IconBook, IconArrow } from "@/components/icons";
 import type { ComponentType, SVGProps } from "react";
 
@@ -83,12 +84,12 @@ export default function Pillars() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="mt-10 text-center"
       >
-        <a
+        <Link
           href="/about"
           className="inline-flex items-center gap-2 text-sm font-semibold text-cyan2 transition hover:gap-3"
         >
           Read the full story <IconArrow width={16} height={16} />
-        </a>
+        </Link>
       </motion.div>
     </section>
   );
