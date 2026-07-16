@@ -168,7 +168,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-blink rounded-full bg-coral" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
               </span>
-              I4N Bangladesh 2026 — 1 August 2026
+              I4N Bangladesh 2026 — 8 August 2026
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-line2 bg-cyan/5 px-3.5 py-1.5 text-xs font-semibold text-cyan2">
               <IconFlag /> Official Young Generation Network of IYNC

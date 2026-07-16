@@ -42,7 +42,7 @@ const bronze = [
 ];
 
 const valueAdd = [
-  { icon: IconTarget, t: "Two stages, one sponsorship", b: "Your brand appears at I4N Bangladesh 2026 in Dhaka (1 August 2026) and at IYNC 2026 in Avignon (October). Most sponsors get one event — you get both." },
+  { icon: IconTarget, t: "Two stages, one sponsorship", b: "Your brand appears at I4N Bangladesh 2026 in Dhaka (8 August 2026) and at IYNC 2026 in Avignon (October). Most sponsors get one event — you get both." },
   { icon: IconNewspaper, t: "National media & press", b: "BYNC actively pursues national press for I4N. Your name appears in every press release, certificate (120+), banner and announcement." },
   { icon: IconUsers, t: "The nuclear talent pipeline", b: "Direct access to Bangladesh's best nuclear engineering students and young professionals — the people who will work at BAEC, NPCBL and Rooppur NPP." },
 ];
@@ -79,7 +79,7 @@ export default function SponsorsPage() {
         <Reveal className="rounded-r-2xl border-l-4 border-cyan bg-gradient-to-r from-cyan/10 to-transparent p-8 md:p-10">
           <p className="font-display text-[clamp(1.2rem,2.4vw,1.7rem)] font-medium leading-snug text-ink">
             Your sponsorship powers two connected milestones: <span className="text-cyan2">I4N Bangladesh 2026</span> in
-            Dhaka on 1 August 2026, and Bangladesh&apos;s <span className="text-cyan2">first-ever National Pavilion at IYNC
+            Dhaka on 8 August 2026, and Bangladesh&apos;s <span className="text-cyan2">first-ever National Pavilion at IYNC
             2026</span> in Avignon, France this October. Your brand travels with us — from the national stage in Dhaka
             to the historic <span className="text-cyan2">Palais des Papes</span>, in front of the global nuclear
             industry.
@@ -234,7 +234,7 @@ export default function SponsorsPage() {
           />
           <div className="relative">
             <span className="inline-flex items-center gap-2 rounded-full border border-coral/40 bg-coral/10 px-4 py-1.5 text-xs font-semibold text-coral2">
-              <IconClock width={15} height={15} /> MOU deadline · June 25, 2026 — Title &amp; Gold spots limited
+              <IconClock width={15} height={15} /> MOU deadline · August 8, 2026 — Title &amp; Gold spots limited
             </span>
             <div className="mt-7">
               <Countdown />

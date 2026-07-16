@@ -14,7 +14,7 @@ const news = [
     date: "June 2026",
     tag: "Milestone",
     title: "I4N Bangladesh 2026 is locked in",
-    body: "Over 500 students engaged and submissions rolling in across all three segments. Event day is confirmed: 1 August 2026 at Russian House, Dhaka.",
+    body: "Over 500 students engaged and submissions rolling in across all three segments. Event day is confirmed: 8 August 2026 at Russian House, Dhaka.",
   },
   {
     date: "January 2026",

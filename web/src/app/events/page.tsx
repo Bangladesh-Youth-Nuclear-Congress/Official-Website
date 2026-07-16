@@ -11,7 +11,7 @@ import { IconCalendar, IconPin, IconGlobe, IconArrow, IconBook, IconMegaphone, I
 export const metadata: Metadata = {
   title: "Events — BYNC",
   description:
-    "BYNC's calendar — I4N Bangladesh 2026 (1 August 2026, Russian House Dhaka) and Bangladesh's first-ever National Pavilion at IYNC 2026 in Avignon, France (4–9 October).",
+    "BYNC's calendar — I4N Bangladesh 2026 (8 August 2026, Russian House Dhaka) and Bangladesh's first-ever National Pavilion at IYNC 2026 in Avignon, France (4–9 October).",
 };
 
 const iyncRows: [string, string][] = [
@@ -42,14 +42,14 @@ export default function EventsPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           {/* I4N */}
           <Reveal className="flex flex-col overflow-hidden rounded-2xl border border-line2 bg-gradient-to-br from-bg3 to-bg2 p-8">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-coral">1 August 2026 · Dhaka</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-coral">8 August 2026 · Dhaka</span>
             <h3 className="mt-3 font-display text-2xl font-bold text-ink">I4N Bangladesh 2026</h3>
             <p className="mt-3 leading-relaxed text-silver">
               The national qualifying round of IYNC&apos;s flagship competition — three segments,
               500+ participants, and a direct path to the global finale.
             </p>
             <div className="mt-6 flex flex-wrap gap-x-7 gap-y-3 text-sm text-cyan2">
-              <span className="inline-flex items-center gap-2"><IconCalendar width={18} height={18} /> 1 August 2026</span>
+              <span className="inline-flex items-center gap-2"><IconCalendar width={18} height={18} /> 8 August 2026</span>
               <span className="inline-flex items-center gap-2"><IconPin width={18} height={18} /> Russian House, Dhaka</span>
             </div>
             <div className="mt-7 flex-1" />
