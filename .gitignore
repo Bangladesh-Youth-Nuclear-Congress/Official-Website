@@ -22,3 +22,10 @@ Thumbs.db
 *.tmp
 ~$*
 *.log
+
+# Local deployment scratch folders
+.deploy-export*/
+.fixed-export/
+.image-fixed-export/
+.main-web-*/
+web/
