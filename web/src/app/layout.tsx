@@ -15,7 +15,7 @@ const inter = Inter({
 
 // Update this to the final custom domain once it's connected.
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bangladesh-youth-nuclear-congress.netlify.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://byncbd.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     title: "Bangladesh Youth Nuclear Congress (BYNC)",
     description:
       "Bangladesh's first young-generation-led nuclear organisation · Official Young Generation Network (YGN) of IYNC (49th member nation).",
-    images: ["/Official-Website/assets/bync-banner.jpg"],
+    images: ["/assets/bync-banner.jpg"],
     type: "website",
   },
-  icons: { icon: "/Official-Website/assets/bync-logo.png" },
+  icons: { icon: "/assets/bync-logo.png" },
 };
 
 export default function RootLayout({

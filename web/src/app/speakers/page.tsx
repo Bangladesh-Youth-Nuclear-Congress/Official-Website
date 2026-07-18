@@ -12,21 +12,21 @@ export const metadata: Metadata = {
 
 const speakers = [
   {
-    img: "/Official-Website/assets/speakers/alice.jpg",
+    img: "/assets/speakers/alice.jpg",
     n: "Alice Cunha da Silva",
     r: "IYNC Vice President",
     o: "Westinghouse",
     bio: "Opened BYNC's Road to I4N with a candid talk on building a global nuclear career — from anywhere in the world, Bangladesh included.",
   },
   {
-    img: "/Official-Website/assets/speakers/dinara.jpg",
+    img: "/assets/speakers/dinara.jpg",
     n: "Dr. Dinara Ermakova",
     r: "IYNC Innovation Chair",
     o: "International Youth Nuclear Congress",
     bio: "Spoke to Bangladeshi students on turning early nuclear ideas into real, fundable innovation — and what judges actually look for.",
   },
   {
-    img: "/Official-Website/assets/speakers/george.jpg",
+    img: "/assets/speakers/george.jpg",
     n: "George Caliment",
     r: "I4N Europe Lead",
     o: "Assystem",

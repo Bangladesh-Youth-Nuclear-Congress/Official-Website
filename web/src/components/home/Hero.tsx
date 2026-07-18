@@ -248,7 +248,7 @@ export default function Hero() {
             className="relative"
           >
             <Image
-              src="/Official-Website/assets/bync-logo.png"
+              src="/assets/bync-logo.png"
               alt="BYNC emblem"
               width={300}
               height={300}

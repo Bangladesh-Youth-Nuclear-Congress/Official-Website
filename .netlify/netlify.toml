@@ -1,0 +1,28 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\BYNC Tasks\\BYNC Website\\web\\out"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build"
+base = "C:\\BYNC Tasks\\BYNC Website\\web"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

@@ -21,7 +21,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const currentPath = pathname.replace(/^\/Official-Website/, "") || "/";
+  const currentPath = pathname || "/";
   const isActive = (href: string) => href === "/" ? currentPath === "/" : currentPath === href || currentPath.startsWith(`${href}/`);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function Nav() {
     >
       <nav className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/Official-Website/assets/bync-logo.png" alt="BYNC" width={54} height={54} priority className="h-[52px] w-[52px] shrink-0" />
+          <Image src="/assets/bync-logo.png" alt="BYNC" width={54} height={54} priority className="h-[52px] w-[52px] shrink-0" />
           <span className="flex flex-col font-display font-semibold leading-tight text-ink">
             <span className="text-sm sm:text-base">Bangladesh Youth Nuclear Congress</span>
             <span className="text-xs text-cyan sm:text-sm">(BYNC)</span>
