@@ -22,3 +22,6 @@ Thumbs.db
 *.tmp
 ~$*
 *.log
+
+# Local Netlify CLI link state
+.netlify/
