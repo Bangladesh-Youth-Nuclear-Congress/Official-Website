@@ -15,7 +15,7 @@ const fronts: {
   {
     icon: IconAtom,
     title: "Innovation for Nuclear",
-    body: "I4N Bangladesh 2026 — the national qualifying round of IYNC's flagship competition. 8 August 2026, Russian House, Dhaka.",
+    body: "Innoventure 2026 — BYNC's regional competition on nuclear, power and energy. Two segments, ৳40,000 prize pool. 8 August 2026, Russian House, Dhaka.",
   },
   {
     icon: IconGlobe,

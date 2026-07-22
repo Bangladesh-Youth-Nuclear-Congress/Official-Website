@@ -58,7 +58,7 @@ export default function NuclearEra() {
         >
           Bangladesh currently lacks an established pipeline of young, globally literate,
           SDG-aligned nuclear professionals equipped to participate in and lead the post-Rooppur
-          era. <span className="font-semibold text-cyan2">I4N Bangladesh 2026 is designed to begin closing that gap.</span>
+          era. <span className="font-semibold text-cyan2">Innoventure 2026 is designed to begin closing that gap.</span>
         </motion.div>
       </div>
     </section>

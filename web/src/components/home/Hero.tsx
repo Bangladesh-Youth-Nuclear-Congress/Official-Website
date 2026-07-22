@@ -12,6 +12,8 @@ import {
 } from "framer-motion";
 import { IconArrow, IconFlag } from "@/components/icons";
 import Particles from "@/components/home/Particles";
+import Marked from "@/components/Marked";
+import { useSiteContent } from "@/lib/live";
 
 const ease = [0.22, 0.61, 0.36, 1] as const;
 const container: Variants = {
@@ -110,13 +112,28 @@ function Orbit({ o }: { o: OrbitDef }) {
   );
 }
 
-const stats = [
-  ["49th", "IYNC member nation"],
-  ["500+", "I4N participants"],
-  ["1000+", "student engagement"],
-];
+// Build-time defaults. Anything edited under /admin → Site content overrides
+// these once the page hydrates; see src/lib/live.ts.
+const copy = {
+  "home.hero.badge": "Innoventure 2026 — 8 August 2026",
+  "home.hero.title": "Powering Bangladesh's [[Nuclear Future]]",
+  "home.hero.subtitle":
+    "Bangladesh's first youth-led nuclear organisation — connecting the nation's brightest STEM minds to the global nuclear community as we enter the post-Rooppur era.",
+  "home.stats.1.value": "49th",
+  "home.stats.1.label": "IYNC member nation",
+  "home.stats.2.value": "500+",
+  "home.stats.2.label": "Innoventure participants",
+  "home.stats.3.value": "1000+",
+  "home.stats.3.label": "student engagement",
+};
 
 export default function Hero() {
+  const t = useSiteContent(copy);
+  const stats = [
+    [t["home.stats.1.value"], t["home.stats.1.label"]],
+    [t["home.stats.2.value"], t["home.stats.2.label"]],
+    [t["home.stats.3.value"], t["home.stats.3.label"]],
+  ];
   const sectionRef = useRef<HTMLElement>(null);
   const mvX = useMotionValue(0);
   const mvY = useMotionValue(0);
@@ -168,7 +185,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-blink rounded-full bg-coral" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
               </span>
-              I4N Bangladesh 2026 — 8 August 2026
+              {t["home.hero.badge"]}
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-line2 bg-cyan/5 px-3.5 py-1.5 text-xs font-semibold text-cyan2">
               <IconFlag /> Official Young Generation Network of IYNC
@@ -179,12 +196,11 @@ export default function Hero() {
             variants={item}
             className="mt-6 max-w-3xl text-[clamp(2.25rem,5.4vw,4.35rem)] font-semibold leading-[1.08] text-ink"
           >
-            Powering Bangladesh&apos;s <span className="hl">Nuclear Future</span>
+            <Marked text={t["home.hero.title"]} />
           </motion.h1>
 
           <motion.p variants={item} className="mt-6 max-w-xl text-lg leading-relaxed text-silver">
-            Bangladesh&apos;s first youth-led nuclear organisation — connecting the nation&apos;s
-            brightest STEM minds to the global nuclear community as we enter the post-Rooppur era.
+            {t["home.hero.subtitle"]}
           </motion.p>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap gap-4">

@@ -25,3 +25,6 @@ Thumbs.db
 
 # Local Netlify CLI link state
 .netlify/
+
+# Local agent/editor config — not part of the deployed website
+.claude/

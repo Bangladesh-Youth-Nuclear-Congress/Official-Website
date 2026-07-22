@@ -32,6 +32,11 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# .env holds only the Supabase URL and publishable key. Both are shipped to the
+# browser in the static bundle anyway, so they are public by construction —
+# committing them keeps the repo buildable by anyone (and by CI) out of the box.
+# Secret keys must never be added here; put them in .env.local, which stays ignored.
+!.env
 
 # vercel
 .vercel

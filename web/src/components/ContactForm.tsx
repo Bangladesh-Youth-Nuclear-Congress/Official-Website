@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { IconArrow } from "@/components/icons";
+import { supabase } from "@/lib/supabase";
 
 const subjects = [
   "Membership / Join BYNC",
-  "I4N Competition 2026",
+  "Innoventure 2026",
   "Sponsorship / Partnership Inquiry",
   "Media / Press",
   "General Inquiry",
@@ -29,28 +30,67 @@ export default function ContactForm() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
+
+    // Honeypot: bots fill hidden fields. Pretend it worked, store nothing.
+    if (data.get("botcheck")) {
+      form.reset();
+      setStatus({ type: "ok", msg: "Thank you! Your message is on its way to BYNC." });
+      return;
+    }
+
     setSending(true);
     setStatus(null);
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
+
+    const str = (k: string) => String(data.get(k) ?? "").trim();
+
+    // Two independent destinations, attempted together:
+    //   Supabase  — the record of truth, read in /admin
+    //   Web3Forms — the email notification BYNC already relies on
+    // Either one succeeding means the message is not lost, so the user only
+    // sees an error if both fail.
+    const [stored, emailed] = await Promise.all([
+      (async () => {
+        try {
+          // The query builder is a thenable, not a real Promise — await it.
+          const { error } = await supabase.from("contact_submissions").insert({
+            name: str("name"),
+            email: str("email"),
+            organisation: str("organisation") || null,
+            subject: str("subject") || null,
+            message: str("message"),
+          });
+          return !error;
+        } catch {
+          return false;
+        }
+      })(),
+      (async () => {
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: data,
+          });
+          if (!res.ok) return false;
+          const json = await res.json().catch(() => ({}));
+          return json.success === true;
+        } catch {
+          return false;
+        }
+      })(),
+    ]);
+
+    setSending(false);
+
+    if (stored || emailed) {
+      form.reset();
+      setStatus({
+        type: "ok",
+        msg: "Thank you! Your message is on its way to BYNC — we'll be in touch shortly.",
       });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.success) {
-        form.reset();
-        setStatus({
-          type: "ok",
-          msg: "Thank you! Your message is on its way to BYNC — we'll be in touch shortly.",
-        });
-      } else {
-        throw new Error();
-      }
-    } catch {
+    } else {
       setStatus({ type: "err", msg: "couldn't-send" });
-    } finally {
-      setSending(false);
     }
   }
 

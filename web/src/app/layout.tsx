@@ -6,6 +6,7 @@ import Backdrop from "@/components/Backdrop";
 import ScrollProgress from "@/components/ScrollProgress";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ChromeGate from "@/components/ChromeGate";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "BYNC — Bangladesh Youth Nuclear Congress",
   description:
-    "Bangladesh's first young-generation-led nuclear organisation and official Young Generation Network (YGN) of IYNC. Home of Innovation for Nuclear (I4N) Bangladesh 2026.",
+    "Bangladesh's first young-generation-led nuclear organisation and official Young Generation Network (YGN) of IYNC. Home of Innoventure 2026 — Regional Competition, Bangladesh.",
   openGraph: {
     title: "Bangladesh Youth Nuclear Congress (BYNC)",
     description:
@@ -38,13 +39,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-bg text-silver antialiased">
-        <Backdrop />
-        <div className="grain" aria-hidden />
-        <ScrollProgress />
-        <SmoothScroll />
-        <Nav />
+        <ChromeGate>
+          <Backdrop />
+          <div className="grain" aria-hidden />
+          <ScrollProgress />
+          <SmoothScroll />
+          <Nav />
+        </ChromeGate>
         <main>{children}</main>
-        <Footer />
+        <ChromeGate>
+          <Footer />
+        </ChromeGate>
       </body>
     </html>
   );

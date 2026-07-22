@@ -7,7 +7,7 @@ const columns: { heading: string; links: [string, string][] }[] = [
     heading: "Explore",
     links: [
       ["About", "/about"],
-      ["I4N Bangladesh", "/i4n"],
+      ["Innoventure 2026", "/innoventure"],
       ["Events", "/events"],
       ["Get Involved", "/get-involved"],
     ],
@@ -16,7 +16,7 @@ const columns: { heading: string; links: [string, string][] }[] = [
     heading: "Programs",
     links: [
       ["Partner With Us", "/sponsors"],
-      ["I4N 2026", "/i4n"],
+      ["Innoventure Segments", "/innoventure"],
       ["IYNC Delegation", "/events"],
       ["Contact", "/contact"],
     ],

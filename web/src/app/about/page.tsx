@@ -16,7 +16,7 @@ const values = [
   ["Knowledge Transfer", "Bridging senior scientists and the next generation through workshops, talks and IYNC programming."],
   ["Peaceful Nuclear Use", "Advocating strictly for civilian, clean-energy applications of nuclear science."],
   ["Global Representation", "Giving Bangladesh a clear, professional voice in the international young generation nuclear network."],
-  ["Innovation & SDGs", "Running I4N to push student-led nuclear problem-solving onto the global stage."],
+  ["Innovation & SDGs", "Running Innoventure to push student-led nuclear problem-solving onto the global stage."],
 ];
 
 const ecosystem: [string, string[]][] = [

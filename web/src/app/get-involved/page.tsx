@@ -4,6 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import Button from "@/components/Button";
 import CtaBand from "@/components/CtaBand";
+import MembershipForm from "@/components/MembershipForm";
 import { IconCheck, IconChevronDown } from "@/components/icons";
 
 export const metadata: Metadata = {
@@ -21,11 +22,11 @@ const tiers = [
     featured: false,
     perks: [
       "Access to all BYNC events & workshops",
-      "Eligible to compete in I4N",
+      "Eligible to compete in Innoventure",
       "Newsletter & community updates",
       "BYNC member certificate",
     ],
-    cta: { href: "/contact", label: "Apply now", variant: "secondary" as const },
+    cta: { href: "#join", label: "Apply now", variant: "secondary" as const },
   },
   {
     badge: "Most popular",
@@ -39,7 +40,7 @@ const tiers = [
       "Industry networking sessions",
       "International representation opportunities",
     ],
-    cta: { href: "/contact", label: "Apply now", variant: "primary" as const },
+    cta: { href: "#join", label: "Apply now", variant: "primary" as const },
   },
   {
     badge: "Institutional",
@@ -59,7 +60,7 @@ const tiers = [
 
 const faqs = [
   ["Who can join BYNC?", "Any student or young professional (under 35) in nuclear science, nuclear engineering or a related field in Bangladesh. Students from MIST and Dhaka University are especially encouraged."],
-  ["How do I get on the IYNC delegation?", "It's competitive — based on your I4N performance, academic background and overall contribution to BYNC. Top performers at I4N Bangladesh 2026 are strongly prioritised."],
+  ["How do I get on the IYNC delegation?", "It's competitive — based on your Innoventure performance, academic background and overall contribution to BYNC. Top performers at Innoventure 2026 are strongly prioritised."],
   ["Is BYNC formally registered?", "BYNC operates as a young generation nuclear network under academic supervision, and is the official Young Generation Network (YGN) of IYNC. Formal registration is in progress."],
   ["Can companies partner with BYNC?", "Yes. We offer MOU-based partnerships and sponsorship roles for organisations in energy, technology and beyond. See the Sponsors page or get in touch."],
 ];
@@ -117,6 +118,21 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
+      {/* application form */}
+      <section id="join" className="border-y border-line bg-bg2/40 scroll-mt-24">
+        <div className="mx-auto max-w-[820px] px-6 py-20 lg:px-10">
+          <SectionHeading
+            eyebrow="Membership application"
+            title="Join BYNC"
+            subtitle="Free for students and young professionals under 35. Fill this in and we'll get you plugged into the community."
+            center
+          />
+          <div className="mt-12">
+            <MembershipForm />
+          </div>
+        </div>
+      </section>
+
       {/* faq */}
       <section className="border-y border-line bg-bg2/40">
         <div className="mx-auto max-w-[820px] px-6 py-20 lg:px-10">
@@ -145,8 +161,8 @@ export default function GetInvolvedPage() {
         eyebrow="One click away"
         title="Ready when you are"
         subtitle="Tell us a little about yourself and we'll get you plugged into the community."
-        primary={{ href: "/contact", label: "Apply now" }}
-        secondary={{ href: "/i4n", label: "Explore I4N" }}
+        primary={{ href: "#join", label: "Apply now" }}
+        secondary={{ href: "/innoventure", label: "Explore Innoventure" }}
       />
     </>
   );

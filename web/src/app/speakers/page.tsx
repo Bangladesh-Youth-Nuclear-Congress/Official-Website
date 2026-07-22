@@ -76,7 +76,7 @@ export default function SpeakersPage() {
 
         <Reveal delay={0.1} className="mt-10 rounded-2xl border border-dashed border-line2 bg-bg2/40 p-7 text-center">
           <p className="text-silver">
-            The full I4N Bangladesh 2026 speaker line-up is being finalised.{" "}
+            The full Innoventure 2026 speaker line-up is being finalised.{" "}
             <span className="text-cyan2">More names coming soon</span> — follow us to hear them first.
           </p>
         </Reveal>
